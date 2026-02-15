@@ -1,6 +1,6 @@
 {
     "name": "neuraform",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Graph-based form engine that eliminates condition hell in complex multi-step forms",
     "private": true,
     "workspaces": [
@@ -25,7 +25,7 @@
         "react",
         "typescript"
     ],
-    "author": "Mehul Birare",
+    "author": "mehulbirare",
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^20.11.5",
@@ -39,10 +39,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/mehulbirare/neuraform.git"
+        "url": "https://github.com/Mehulbirare/neura-form.git"
     },
     "bugs": {
-        "url": "https://github.com/mehulbirare/neuraform/issues"
+        "url": "https://github.com/Mehulbirare/neura-form/issues"
     },
-    "homepage": "https://github.com/mehulbirare/neuraform#readme"
+    "homepage": "https://github.com/Mehulbirare/neura-form#readme"
 }

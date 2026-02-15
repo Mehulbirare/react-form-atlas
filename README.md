@@ -97,6 +97,8 @@ npm install @neuraform/core
 
 ### Basic Usage (React)
 
+[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-react-ts?file=src%2FApp.tsx&dependencies=@neuraform/react,@neuraform/core)
+
 ```tsx
 import { useNeuraForm } from '@neuraform/react';
 
@@ -109,8 +111,8 @@ function OnboardingFlow() {
 
   return (
     <div>
-      <ProgressBar value={progress} />
-      <StepRenderer step={currentStep} />
+      <progress value={progress} max={100} />
+      <div>Current Step: {currentStep}</div>
       <button onClick={back}>Back</button>
       <button onClick={next}>Next</button>
     </div>
@@ -119,6 +121,8 @@ function OnboardingFlow() {
 ```
 
 ### Basic Usage (Vanilla JS)
+
+[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/node?file=index.js&dependencies=@neuraform/core)
 
 ```javascript
 import { NeuraFormEngine } from '@neuraform/core';

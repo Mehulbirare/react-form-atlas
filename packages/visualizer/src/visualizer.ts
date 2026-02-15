@@ -4,45 +4,45 @@ import type { FormSchema } from '@neuraform/core';
  * Generate a Mermaid flowchart from a NeuraForm schema
  */
 export class SchemaVisualizer {
-    /**
-     * Convert schema to Mermaid diagram syntax
-     */
-    static toMermaid(schema: FormSchema): string {
-        const lines: string[] = ['graph TD'];
+  /**
+   * Convert schema to Mermaid diagram syntax
+   */
+  static toMermaid(schema: FormSchema): string {
+    const lines: string[] = ['graph TD'];
 
-        // Add initial state marker
-        lines.push(`    Start([Start]) --> ${schema.initial}`);
+    // Add initial state marker
+    lines.push(`    Start([Start]) --> ${schema.initial}`);
 
-        // Process each state
-        for (const [stateId, stateConfig] of Object.entries(schema.states)) {
-            const state = stateConfig as typeof schema.states[string];
-            // Determine node shape based on whether it's a final state
-            const isFinal = !state.on || Object.keys(state.on).length === 0;
-            const nodeShape = isFinal
-                ? `${stateId}([${stateId}])`
-                : `${stateId}[${stateId}]`;
+    // Process each state
+    for (const [stateId, stateConfig] of Object.entries(schema.states)) {
+      const state = stateConfig as typeof schema.states[string];
+      // Determine node shape based on whether it's a final state
+      const isFinal = !state.on || Object.keys(state.on).length === 0;
+      const nodeShape = isFinal
+        ? `${stateId}([${stateId}])`
+        : `${stateId}[${stateId}]`;
 
-            if (!state.on) continue;
+      if (!state.on) continue;
 
-            // Add transitions
-            for (const [event, transitionConfig] of Object.entries(state.on)) {
-                const transition = transitionConfig as string | { target: string; cond?: any };
-                const target = typeof transition === 'string' ? transition : transition.target;
-                const label = event.replace(/_/g, ' ');
-                lines.push(`    ${stateId} -->|${label}| ${target}`);
-            }
-        }
-
-        return lines.join('\n');
+      // Add transitions
+      for (const [event, transitionConfig] of Object.entries(state.on)) {
+        const transition = transitionConfig as string | { target: string; cond?: any };
+        const target = typeof transition === 'string' ? transition : transition.target;
+        const label = event.replace(/_/g, ' ');
+        lines.push(`    ${stateId} -->|${label}| ${target}`);
+      }
     }
 
-    /**
-     * Generate an HTML page with the visualized schema
-     */
-    static toHTML(schema: FormSchema): string {
-        const mermaid = this.toMermaid(schema);
+    return lines.join('\n');
+  }
 
-        return `<!DOCTYPE html>
+  /**
+   * Generate an HTML page with the visualized schema
+   */
+  static toHTML(schema: FormSchema): string {
+    const mermaid = this.toMermaid(schema);
+
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -185,41 +185,41 @@ ${mermaid}
   </script>
 </body>
 </html>`;
+  }
+
+  /**
+   * Generate statistics about the schema
+   */
+  static getStats(schema: FormSchema): {
+    totalStates: number;
+    totalTransitions: number;
+    finalStates: number;
+    averageBranchingFactor: number;
+  } {
+    const states = Object.values(schema.states);
+    const totalStates = states.length;
+
+    let totalTransitions = 0;
+    let finalStates = 0;
+
+    for (const stateConfig of states) {
+      const state = stateConfig as typeof schema.states[string];
+      if (!state.on || Object.keys(state.on).length === 0) {
+        finalStates++;
+      } else {
+        totalTransitions += Object.keys(state.on).length;
+      }
     }
 
-    /**
-     * Generate statistics about the schema
-     */
-    static getStats(schema: FormSchema): {
-        totalStates: number;
-        totalTransitions: number;
-        finalStates: number;
-        averageBranchingFactor: number;
-    } {
-        const states = Object.values(schema.states);
-        const totalStates = states.length;
+    const averageBranchingFactor = totalStates > 0
+      ? totalTransitions / (totalStates - finalStates || 1)
+      : 0;
 
-        let totalTransitions = 0;
-        let finalStates = 0;
-
-        for (const stateConfig of states) {
-            const state = stateConfig as typeof schema.states[string];
-            if (!state.on || Object.keys(state.on).length === 0) {
-                finalStates++;
-            } else {
-                totalTransitions += Object.keys(state.on).length;
-            }
-        }
-
-        const averageBranchingFactor = totalStates > 0
-            ? totalTransitions / (totalStates - finalStates || 1)
-            : 0;
-
-        return {
-            totalStates,
-            totalTransitions,
-            finalStates,
-            averageBranchingFactor: Math.round(averageBranchingFactor * 100) / 100
-        };
-    }
+    return {
+      totalStates,
+      totalTransitions,
+      finalStates,
+      averageBranchingFactor: Math.round(averageBranchingFactor * 100) / 100
+    };
+  }
 }

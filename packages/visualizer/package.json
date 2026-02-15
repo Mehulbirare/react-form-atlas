@@ -1,6 +1,6 @@
 {
     "name": "@neuraform/visualizer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Visual form flow designer for NeuraForm schemas",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -14,6 +14,9 @@
             "import": "./dist/index.mjs",
             "types": "./dist/index.d.ts"
         }
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "files": [
         "dist",
@@ -29,7 +32,12 @@
         "flowchart",
         "graph"
     ],
-    "author": "Your Name",
+    "author": "Mehul Birare",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mehulbirare/neura-form.git",
+        "directory": "packages/visualizer"
+    },
     "license": "MIT",
     "dependencies": {
         "@neuraform/core": "^1.0.0"

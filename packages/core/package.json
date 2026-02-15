@@ -1,6 +1,6 @@
 {
     "name": "@neuraform/core",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Framework-agnostic graph-based form engine",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -11,6 +11,9 @@
             "import": "./dist/index.mjs",
             "types": "./dist/index.d.ts"
         }
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "files": [
         "dist",
@@ -29,7 +32,12 @@
         "branching-logic",
         "multi-step-forms"
     ],
-    "author": "Your Name",
+    "author": "Mehul Birare",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mehulbirare/neura-form.git",
+        "directory": "packages/core"
+    },
     "license": "MIT",
     "devDependencies": {
         "tsup": "^8.0.1",

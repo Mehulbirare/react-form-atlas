@@ -1,83 +1,88 @@
 # @neuraform/core
 
-Framework-agnostic graph-based form engine that eliminates "condition hell" in complex multi-step forms.
+[![npm version](https://img.shields.io/npm/v/@neuraform/core.svg?style=flat-square)](https://www.npmjs.com/package/@neuraform/core)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 
-## Installation
+**The Brain of Your Forms.** Framework-agnostic graph-based form engine that eliminates "condition hell" in complex multi-step flows.
+
+## 🚀 Why Graph-Based?
+
+Traditional linear forms (`[Step1, Step2, Step3]`) break when logic gets complex. **NeuraForm** treats your form as a **Directed Acyclic Graph (DAG)**.
+
+```mermaid
+graph LR
+  Start((Start)) --> UserType{User Type?}
+  UserType -->|Business| Biz[Business Details]
+  UserType -->|Individual| Pers[Personal Details]
+  Biz --> Tax[Tax Info]
+  Pers --> Complete((Complete))
+  Tax --> Complete
+  style Start fill:#f9f,stroke:#333,stroke-width:2px
+  style Complete fill:#9f9,stroke:#333,stroke-width:2px
+```
+
+| Feature | ❌ Linear Forms | ✅ NeuraForm (Graph) |
+| :--- | :--- | :--- |
+| **Logic** | Nested `if/else` spaghetti | Declarative Edges |
+| **Navigation** | Hardcoded implementation | Auto-computed Paths |
+| **Progress** | `Step / Total` (Inaccurate) | Weighted Path Calculation |
+| **Validation** | Field-level only | Predictive Path Validation |
+
+## 📦 Installation
 
 ```bash
 npm install @neuraform/core
 ```
 
-## Quick Start
+## ⚡ Quick Start
+
+[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/node?file=index.js&dependencies=@neuraform/core)
 
 ```javascript
 import { NeuraFormEngine } from '@neuraform/core';
 
+// 1. Define your map (Schema)
 const schema = {
-  id: 'my-form',
+  id: 'onboarding-flow',
   initial: 'welcome',
   states: {
     welcome: {
-      id: 'welcome',
       on: { NEXT: 'userType' }
     },
     userType: {
-      id: 'userType',
       on: {
-        SELECT_BUSINESS: 'businessDetails',
-        SELECT_INDIVIDUAL: 'personalDetails'
+        BUSINESS: 'businessDetails',
+        INDIVIDUAL: 'personalDetails'
       }
     },
-    businessDetails: {
-      id: 'businessDetails',
-      on: { NEXT: 'complete' }
-    },
-    personalDetails: {
-      id: 'personalDetails',
-      on: { NEXT: 'complete' }
-    },
-    complete: {
-      id: 'complete'
-    }
+    businessDetails: { on: { NEXT: 'complete' } },
+    personalDetails: { on: { NEXT: 'complete' } },
+    complete: { type: 'final' }
   }
 };
 
+// 2. Initialize the engine
 const engine = new NeuraFormEngine({
   schema,
-  autoSave: true,
-  onComplete: (data) => {
-    console.log('Form completed!', data);
-  }
+  autoSave: true, // Auto-saves to IndexedDB
+  onComplete: (data) => console.log('🎉 Form Completed:', data)
 });
 
 await engine.start();
 
-// Transition between states
-await engine.transition('NEXT');
-await engine.transition('SELECT_BUSINESS', { userType: 'business' });
-
-// Get progress
-const progress = engine.getProgress(); // 0-100
-
-// Go back
-await engine.back();
+// 3. Drive!
+console.log(engine.getCurrentState()); // 'welcome'
+await engine.transition('NEXT'); 
+console.log(engine.getCurrentState()); // 'userType'
 ```
 
-## Features
+## 📚 Documentation
 
-- 🧠 **Graph-Based Navigation**: Define your form as a DAG, not a linear array
-- 💾 **Auto-Save**: Automatic state persistence with IndexedDB/localStorage
-- ✅ **Predictive Validation**: Validate entire paths, not just individual fields
-- 📊 **Smart Progress**: Weight-based progress calculation
-- 🎯 **Type-Safe**: Full TypeScript support
-- 🔌 **Framework-Agnostic**: Works with any JavaScript framework
+- [**Core Concepts**](https://github.com/Mehulbirare/neura-form/blob/main/docs/core-concepts.md) - Learn about Nodes, Edges, and Travelers.
+- [**API Reference**](https://github.com/Mehulbirare/neura-form/blob/main/docs/api-reference.md) - Full method documentation.
+- [**Examples**](https://github.com/Mehulbirare/neura-form/tree/main/examples) - Real-world usage.
 
-## Documentation
+## 📄 License
 
-- [Core Concepts](../../docs/core-concepts.md)
-- [API Reference](../../docs/api-reference.md)
-- [Examples](../../examples)
-
-## License
-
-MIT
+MIT © [Mehul Birare](https://github.com/Mehulbirare)

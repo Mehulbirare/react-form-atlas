@@ -1,6 +1,6 @@
 {
     "name": "@neuraform/react",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "React hooks and components for NeuraForm",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -11,6 +11,9 @@
             "import": "./dist/index.mjs",
             "types": "./dist/index.d.ts"
         }
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "files": [
         "dist",
@@ -27,7 +30,12 @@
         "hooks",
         "neuraform"
     ],
-    "author": "Your Name",
+    "author": "Mehul Birare",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mehulbirare/neura-form.git",
+        "directory": "packages/react"
+    },
     "license": "MIT",
     "peerDependencies": {
         "react": "^18.0.0"

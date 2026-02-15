@@ -1,15 +1,102 @@
 # @neuraform/react
 
-React hooks and components for NeuraForm.
+[![npm version](https://img.shields.io/npm/v/@neuraform/react.svg?style=flat-square)](https://www.npmjs.com/package/@neuraform/react)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-## Installation
+**Official React Hooks for NeuraForm.** Build complex branching forms with simple hooks.
+
+## 📦 Installation
 
 ```bash
 npm install @neuraform/core @neuraform/react
 ```
 
-## Quick Start
+## ⚡ Quick Start
 
+[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-react-ts?file=src%2FApp.tsx&dependencies=@neuraform/react,@neuraform/core)
+
+```tsx
+import { useNeuraForm } from '@neuraform/react';
+
+// Define your map
+const schema = {
+  initial: 'welcome',
+  states: {
+    welcome: { on: { NEXT: 'details' } },
+    details: { on: { SUBMIT: 'success' } },
+    success: { type: 'final' }
+  }
+};
+
+export default function MyForm() {
+  const { 
+    currentStep, // Current node ID (e.g., 'welcome')
+    transition,  // Function to move to next node
+    back,        // Function to go back
+    progress,    // 0-100%
+    isReady      // true when engine is initialized
+  } = useNeuraForm({
+    schema,
+    autoSave: true
+  });
+
+  if (!isReady) return <p>Loading...</p>;
+
+  return (
+    <div className="p-4">
+      {/* Progress Bar */}
+      <div className="h-2 bg-gray-200 rounded">
+        <div 
+          className="h-full bg-blue-500 transition-all duration-300" 
+          style={{ width: `${progress}%` }} 
+        />
+      </div>
+
+      {/* Render Steps */}
+      {currentStep === 'welcome' && (
+        <StepOne onNext={() => transition('NEXT')} />
+      )}
+      
+      {currentStep === 'details' && (
+        <StepTwo onSubmit={() => transition('SUBMIT')} />
+      )}
+
+      {currentStep === 'success' && <h1>🎉 Done!</h1>}
+
+      {/* Back Button */}
+      <button onClick={back} disabled={progress === 0}>
+        Back
+      </button>
+    </div>
+  );
+}
+```
+
+## 📚 API Reference
+
+### `useNeuraForm(options)`
+
+#### Options
+| Option | Type | Description |
+| :--- | :--- | :--- |
+| `schema` | `object` | **Required.** The graph definition. |
+| `autoSave` | `boolean` | Enable IndexedDB persistence (Default: `false`). |
+| `storageKey` | `string` | Unique key for storage (Default: `'neuraform'`). |
+| `onComplete` | `func` | Callback when a final state is reached. |
+
+#### Returns
+| Value | Type | Description |
+| :--- | :--- | :--- |
+| `currentStep` | `string` | ID of the current active node. |
+| `transition` | `func` | `(event: string, payload?: any) => void` |
+| `back` | `func` | Go to the previous step. |
+| `progress` | `number` | Calculated completion (0-100). |
+| `context` | `object` | The collected form data so far. |
+| `updateContext` | `func` | Manually update form data. |
+
+## 📄 License
+
+MIT © [Mehul Birare](https://github.com/Mehulbirare)
 ```tsx
 import { useNeuraForm } from '@neuraform/react';
 import type { FormSchema } from '@neuraform/core';
