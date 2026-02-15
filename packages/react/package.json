@@ -1,0 +1,45 @@
+{
+    "name": "@neuraform/react",
+    "version": "1.0.0",
+    "description": "React hooks and components for NeuraForm",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts --external react",
+        "dev": "tsup src/index.ts --format cjs,esm --dts --external react --watch",
+        "test": "vitest"
+    },
+    "keywords": [
+        "react",
+        "forms",
+        "hooks",
+        "neuraform"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": "^18.0.0"
+    },
+    "dependencies": {
+        "@neuraform/core": "^1.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.48",
+        "react": "^18.2.0",
+        "tsup": "^8.0.1",
+        "typescript": "^5.3.3",
+        "vitest": "^1.2.0"
+    }
+}

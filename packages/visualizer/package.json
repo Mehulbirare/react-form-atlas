@@ -1,0 +1,41 @@
+{
+    "name": "@neuraform/visualizer",
+    "version": "1.0.0",
+    "description": "Visual form flow designer for NeuraForm schemas",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "bin": {
+        "neuraform-visualizer": "./dist/cli.js"
+    },
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsup src/index.ts src/cli.ts --format cjs,esm --dts",
+        "dev": "tsup src/index.ts src/cli.ts --format cjs,esm --dts --watch"
+    },
+    "keywords": [
+        "neuraform",
+        "visualizer",
+        "flowchart",
+        "graph"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "@neuraform/core": "^1.0.0"
+    },
+    "devDependencies": {
+        "tsup": "^8.0.1",
+        "typescript": "^5.3.3"
+    }
+}

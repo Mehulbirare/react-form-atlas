@@ -1,0 +1,92 @@
+{
+    "id": "onboarding-flow",
+    "initial": "welcome",
+    "context": {},
+    "states": {
+        "welcome": {
+            "id": "welcome",
+            "meta": {
+                "weight": 1
+            },
+            "on": {
+                "NEXT": "userType"
+            }
+        },
+        "userType": {
+            "id": "userType",
+            "meta": {
+                "weight": 2,
+                "validation": [
+                    {
+                        "type": "required",
+                        "message": "Please select a user type"
+                    }
+                ]
+            },
+            "on": {
+                "SELECT_BUSINESS": {
+                    "target": "businessDetails",
+                    "cond": null
+                },
+                "SELECT_INDIVIDUAL": {
+                    "target": "personalDetails",
+                    "cond": null
+                }
+            }
+        },
+        "businessDetails": {
+            "id": "businessDetails",
+            "meta": {
+                "weight": 3,
+                "validation": [
+                    {
+                        "type": "required",
+                        "message": "Company name is required"
+                    }
+                ]
+            },
+            "on": {
+                "NEXT": "taxInfo"
+            }
+        },
+        "personalDetails": {
+            "id": "personalDetails",
+            "meta": {
+                "weight": 2,
+                "validation": [
+                    {
+                        "type": "required",
+                        "message": "Full name is required"
+                    }
+                ]
+            },
+            "on": {
+                "NEXT": "preferences"
+            }
+        },
+        "taxInfo": {
+            "id": "taxInfo",
+            "meta": {
+                "weight": 2
+            },
+            "on": {
+                "NEXT": "preferences"
+            }
+        },
+        "preferences": {
+            "id": "preferences",
+            "meta": {
+                "weight": 1
+            },
+            "on": {
+                "NEXT": "complete"
+            }
+        },
+        "complete": {
+            "id": "complete",
+            "meta": {
+                "weight": 1
+            }
+        }
+    }
+}

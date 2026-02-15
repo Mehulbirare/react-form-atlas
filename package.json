@@ -1,0 +1,48 @@
+{
+    "name": "neuraform",
+    "version": "1.0.0",
+    "description": "Graph-based form engine that eliminates condition hell in complex multi-step forms",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "npm run build --workspaces",
+        "test": "npm run test --workspaces",
+        "lint": "eslint packages/*/src --ext .ts,.tsx",
+        "format": "prettier --write \"packages/*/src/**/*.{ts,tsx}\"",
+        "clean": "rimraf packages/*/dist",
+        "prepare": "husky install"
+    },
+    "keywords": [
+        "forms",
+        "multi-step",
+        "branching-logic",
+        "state-machine",
+        "graph",
+        "conditional-forms",
+        "form-builder",
+        "react",
+        "typescript"
+    ],
+    "author": "Mehul Birare",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^20.11.5",
+        "@typescript-eslint/eslint-plugin": "^6.19.0",
+        "@typescript-eslint/parser": "^6.19.0",
+        "eslint": "^8.56.0",
+        "husky": "^8.0.3",
+        "prettier": "^3.2.4",
+        "rimraf": "^5.0.5",
+        "typescript": "^5.3.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mehulbirare/neuraform.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mehulbirare/neuraform/issues"
+    },
+    "homepage": "https://github.com/mehulbirare/neuraform#readme"
+}

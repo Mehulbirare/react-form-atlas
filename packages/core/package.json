@@ -1,0 +1,42 @@
+{
+    "name": "@neuraform/core",
+    "version": "1.0.0",
+    "description": "Framework-agnostic graph-based form engine",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts",
+        "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+        "test": "vitest",
+        "test:coverage": "vitest --coverage"
+    },
+    "keywords": [
+        "forms",
+        "state-machine",
+        "graph",
+        "branching-logic",
+        "multi-step-forms"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "devDependencies": {
+        "tsup": "^8.0.1",
+        "typescript": "^5.3.3",
+        "vitest": "^1.2.0"
+    },
+    "dependencies": {
+        "idb-keyval": "^6.2.1"
+    }
+}
