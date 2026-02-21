@@ -11,9 +11,9 @@ import { Validator } from './validator';
 import { PathCalculator } from './path-calculator';
 
 /**
- * NeuraForm Engine - The core state machine for graph-based forms
+ * Form Engine - The core state machine for graph-based forms
  */
-export class NeuraFormEngine {
+export class FormEngine {
     private schema: FormSchema;
     private state: FormEngineState;
     private storage: StorageAdapter | null = null;
@@ -294,3 +294,7 @@ export class NeuraFormEngine {
         };
     }
 }
+
+
+
+

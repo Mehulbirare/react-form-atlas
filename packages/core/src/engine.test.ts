@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { NeuraFormEngine } from '../src/engine';
+import { FormEngine } from '../src/engine';
 import type { FormSchema } from '../src/types';
 
-describe('NeuraFormEngine', () => {
+describe('FormEngine', () => {
     let schema: FormSchema;
-    let engine: NeuraFormEngine;
+    let engine: FormEngine;
 
     beforeEach(() => {
         schema = {
@@ -31,7 +31,7 @@ describe('NeuraFormEngine', () => {
             }
         };
 
-        engine = new NeuraFormEngine({ schema });
+        engine = new FormEngine({ schema });
     });
 
     describe('initialization', () => {
@@ -129,7 +129,7 @@ describe('NeuraFormEngine', () => {
             await engine.start();
 
             let eventData: any;
-            engine.on('stepChange', (data) => {
+            engine.on('stepChange', (data: any) => {
                 eventData = data;
             });
 
@@ -146,7 +146,7 @@ describe('NeuraFormEngine', () => {
             await engine.start();
 
             let completed = false;
-            engine.on('complete', () => {
+            engine.on('complete', (data: any) => {
                 completed = true;
             });
 
@@ -183,3 +183,7 @@ describe('NeuraFormEngine', () => {
         });
     });
 });
+
+
+
+

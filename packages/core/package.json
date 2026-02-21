@@ -1,5 +1,5 @@
 {
-    "name": "@neuraform/core",
+    "name": "react-form-engine",
     "version": "1.0.1",
     "description": "Framework-agnostic graph-based form engine",
     "main": "./dist/index.js",
@@ -35,7 +35,7 @@
     "author": "Mehul Birare",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Mehulbirare/neura-form.git",
+        "url": "https://github.com/Mehulbirare/react-form.git",
         "directory": "packages/core"
     },
     "license": "MIT",
@@ -48,3 +48,6 @@
         "idb-keyval": "^6.2.1"
     }
 }
+
+
+

@@ -1,21 +1,21 @@
 # API Reference
 
-## @neuraform/core
+## react-form-engine
 
-### NeuraFormEngine
+### FormEngine
 
 The main engine class that manages form state and transitions.
 
 #### Constructor
 
 ```typescript
-new NeuraFormEngine(options: FormEngineOptions)
+new FormEngine(options: FormEngineOptions)
 ```
 
 **Options:**
 - `schema: FormSchema` - The form schema (required)
 - `autoSave?: boolean` - Enable auto-save (default: false)
-- `storageKey?: string` - Custom storage key (default: 'neuraform-state')
+- `storageKey?: string` - Custom storage key (default: 'React Form-state')
 - `onStepChange?: (event: StepChangeEvent) => void` - Step change callback
 - `onComplete?: (context: FormContext) => void` - Completion callback
 - `onError?: (error: Error) => void` - Error callback
@@ -26,7 +26,7 @@ new NeuraFormEngine(options: FormEngineOptions)
 Start the engine and load saved state if available.
 
 ```typescript
-const engine = new NeuraFormEngine({ schema });
+const engine = new FormEngine({ schema });
 await engine.start();
 ```
 
@@ -182,14 +182,14 @@ interface ValidationRule {
 
 ---
 
-## @neuraform/react
+## react-form-bridge
 
-### useNeuraForm
+### useReactForm
 
-React hook for NeuraForm.
+React hook for React Form.
 
 ```typescript
-function useNeuraForm(options: UseNeuraFormOptions): UseNeuraFormReturn
+function useReactForm(options: useReactFormOptions): useReactFormReturn
 ```
 
 **Options:** Same as `FormEngineOptions` plus:
@@ -197,7 +197,7 @@ function useNeuraForm(options: UseNeuraFormOptions): UseNeuraFormReturn
 
 **Returns:**
 ```typescript
-interface UseNeuraFormReturn {
+interface useReactFormReturn {
   currentState: string;
   context: FormContext;
   progress: number;
@@ -207,7 +207,7 @@ interface UseNeuraFormReturn {
   back: () => Promise<void>;
   updateContext: (data: Partial<FormContext>) => Promise<void>;
   reset: () => Promise<void>;
-  engine: NeuraFormEngine;
+  engine: FormEngine;
   isReady: boolean;
 }
 ```
@@ -221,7 +221,7 @@ const {
   transition,
   back,
   isReady
-} = useNeuraForm({
+} = useReactForm({
   schema: mySchema,
   autoSave: true,
   onComplete: (data) => submitForm(data)
@@ -230,7 +230,7 @@ const {
 
 ---
 
-## @neuraform/visualizer
+## react-form-visualizer
 
 ### SchemaVisualizer
 
@@ -268,7 +268,7 @@ const stats = SchemaVisualizer.getStats(schema);
 ### CLI
 
 ```bash
-neuraform-visualizer <schema-file> [options]
+React Form-visualizer <schema-file> [options]
 
 Options:
   -o, --output <file>    Output HTML file
@@ -277,5 +277,7 @@ Options:
 
 **Example:**
 ```bash
-neuraform-visualizer schema.json -o visualization.html
+React Form-visualizer schema.json -o visualization.html
 ```
+
+

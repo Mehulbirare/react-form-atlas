@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNeuraForm } from '@neuraform/react';
-import type { FormSchema } from '@neuraform/core';
+import { useReactForm } from 'react-form-bridge';
+import type { FormSchema } from 'react-form-engine';
 
 // Import your schema
 import onboardingSchema from './onboarding-schema.json';
@@ -17,15 +17,15 @@ export function OnboardingFlow() {
         back,
         updateContext,
         isReady
-    } = useNeuraForm({
+    } = useReactForm({
         schema,
         autoSave: true,
         storageKey: 'my-onboarding-flow',
-        onComplete: (data) => {
+        onComplete: (data: any) => {
             console.log('Onboarding complete!', data);
             // Submit to your backend
         },
-        onStepChange: (event) => {
+        onStepChange: (event: any) => {
             // Track analytics
             console.log('Step changed:', event);
         }
@@ -269,3 +269,5 @@ function CompleteStep({ data }: { data: any }) {
         </div>
     );
 }
+
+

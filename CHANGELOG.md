@@ -8,17 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-02-15
 
 ### Added
-- Initial release of NeuraForm
-- `@neuraform/core` - Framework-agnostic form engine
+- Initial release of React Form
+- `react-form-engine` - Framework-agnostic form engine
   - State machine-based form navigation
   - Auto-save with IndexedDB/localStorage
   - Predictive validation
   - Smart progress calculation
   - Event system for tracking
-- `@neuraform/react` - React integration
-  - `useNeuraForm` hook
+- `react-form-bridge` - React integration
+  - `useReactForm` hook
   - TypeScript support
-- `@neuraform/visualizer` - Schema visualization
+- `react-form-visualizer` - Schema visualization
   - CLI tool for generating flowcharts
   - Mermaid diagram generation
   - Interactive HTML output
@@ -34,4 +34,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Accessibility**: Built-in ARIA labels and keyboard navigation
 - **Analytics Ready**: Hooks for tracking user behavior
 
-[1.0.0]: https://github.com/yourusername/neuraform/releases/tag/v1.0.0
+[1.0.0]: https://github.com/yourusername/React Form/releases/tag/v1.0.0
+
+

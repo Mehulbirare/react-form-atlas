@@ -1,12 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { NeuraFormEngine } from '@neuraform/core';
-import type { FormEngineOptions, FormContext, StepChangeEvent } from '@neuraform/core';
+import { FormEngine, type FormEngineOptions, type FormContext, type StepChangeEvent } from 'react-form-engine';
 
-export interface UseNeuraFormOptions extends FormEngineOptions {
+export interface UseReactFormOptions extends FormEngineOptions {
     resume?: boolean;
 }
 
-export interface UseNeuraFormReturn {
+export interface UseReactFormReturn {
     currentState: string;
     context: FormContext;
     progress: number;
@@ -16,24 +15,24 @@ export interface UseNeuraFormReturn {
     back: () => Promise<void>;
     updateContext: (data: Partial<FormContext>) => Promise<void>;
     reset: () => Promise<void>;
-    engine: NeuraFormEngine;
+    engine: FormEngine;
     isReady: boolean;
 }
 
 /**
- * React hook for NeuraForm
+ * React hook for React Form
  * 
  * @example
  * ```tsx
- * const { currentState, next, back, progress } = useNeuraForm({
+ * const { currentState, transition, back, progress } = useReactForm({
  *   schema: formGraph,
  *   autoSave: true,
  *   onComplete: (data) => console.log('Done!', data)
  * });
  * ```
  */
-export function useNeuraForm(options: UseNeuraFormOptions): UseNeuraFormReturn {
-    const engineRef = useRef<NeuraFormEngine | null>(null);
+export function useReactForm(options: UseReactFormOptions): UseReactFormReturn {
+    const engineRef = useRef<FormEngine | null>(null);
     const [isReady, setIsReady] = useState(false);
     const [currentState, setCurrentState] = useState('');
     const [context, setContext] = useState<FormContext>({});
@@ -46,7 +45,7 @@ export function useNeuraForm(options: UseNeuraFormOptions): UseNeuraFormReturn {
 
     // Initialize engine
     useEffect(() => {
-        const engine = new NeuraFormEngine(options);
+        const engine = new FormEngine(options);
         engineRef.current = engine;
 
         // Set up event listeners
@@ -125,7 +124,11 @@ export function useNeuraForm(options: UseNeuraFormOptions): UseNeuraFormReturn {
         back,
         updateContext,
         reset,
-        engine: engineRef.current!,
+        engine: engineRef.current as FormEngine,
         isReady
     };
 }
+
+
+
+

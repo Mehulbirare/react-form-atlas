@@ -1,6 +1,6 @@
-# @neuraform/core
+# react-form-engine
 
-[![npm version](https://img.shields.io/npm/v/@neuraform/core.svg?style=flat-square)](https://www.npmjs.com/package/@neuraform/core)
+[![npm version](https://img.shields.io/npm/v/react-form-engine.svg?style=flat-square)](https://www.npmjs.com/package/react-form-engine)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 
@@ -8,7 +8,7 @@
 
 ## 🚀 Why Graph-Based?
 
-Traditional linear forms (`[Step1, Step2, Step3]`) break when logic gets complex. **NeuraForm** treats your form as a **Directed Acyclic Graph (DAG)**.
+Traditional linear forms (`[Step1, Step2, Step3]`) break when logic gets complex. **React Form** treats your form as a **Directed Acyclic Graph (DAG)**.
 
 ```mermaid
 graph LR
@@ -22,7 +22,7 @@ graph LR
   style Complete fill:#9f9,stroke:#333,stroke-width:2px
 ```
 
-| Feature | ❌ Linear Forms | ✅ NeuraForm (Graph) |
+| Feature | ❌ Linear Forms | ✅ React Form (Graph) |
 | :--- | :--- | :--- |
 | **Logic** | Nested `if/else` spaghetti | Declarative Edges |
 | **Navigation** | Hardcoded implementation | Auto-computed Paths |
@@ -32,15 +32,15 @@ graph LR
 ## 📦 Installation
 
 ```bash
-npm install @neuraform/core
+npm install react-form-engine
 ```
 
 ## ⚡ Quick Start
 
-[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/node?file=index.js&dependencies=@neuraform/core)
+[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/node?file=index.js&dependencies=react-form-engine)
 
 ```javascript
-import { NeuraFormEngine } from '@neuraform/core';
+import { FormEngine } from 'react-form-engine';
 
 // 1. Define your map (Schema)
 const schema = {
@@ -63,7 +63,7 @@ const schema = {
 };
 
 // 2. Initialize the engine
-const engine = new NeuraFormEngine({
+const engine = new FormEngine({
   schema,
   autoSave: true, // Auto-saves to IndexedDB
   onComplete: (data) => console.log('🎉 Form Completed:', data)
@@ -79,10 +79,14 @@ console.log(engine.getCurrentState()); // 'userType'
 
 ## 📚 Documentation
 
-- [**Core Concepts**](https://github.com/Mehulbirare/neura-form/blob/main/docs/core-concepts.md) - Learn about Nodes, Edges, and Travelers.
-- [**API Reference**](https://github.com/Mehulbirare/neura-form/blob/main/docs/api-reference.md) - Full method documentation.
-- [**Examples**](https://github.com/Mehulbirare/neura-form/tree/main/examples) - Real-world usage.
+- [**Core Concepts**](https://github.com/Mehulbirare/react-form/blob/main/docs/core-concepts.md) - Learn about Nodes, Edges, and Travelers.
+- [**API Reference**](https://github.com/Mehulbirare/react-form/blob/main/docs/api-reference.md) - Full method documentation.
+- [**Examples**](https://github.com/Mehulbirare/react-form/tree/main/examples) - Real-world usage.
 
 ## 📄 License
 
 MIT © [Mehul Birare](https://github.com/Mehulbirare)
+
+
+
+

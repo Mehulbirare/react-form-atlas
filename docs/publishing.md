@@ -1,6 +1,6 @@
 # Publishing to NPM
 
-This guide walks you through publishing NeuraForm packages to NPM.
+This guide walks you through publishing React Form packages to NPM.
 
 ## Prerequisites
 
@@ -104,12 +104,12 @@ Add these to your root `package.json`:
 
 ## Scoped Packages
 
-If you want to use scoped packages (e.g., `@yourname/neuraform-core`):
+If you want to use scoped packages (e.g., `@yourname/React Form-core`):
 
 1. Update package names in all `package.json` files:
    ```json
    {
-     "name": "@yourname/neuraform-core"
+     "name": "@yourname/React Form-core"
    }
    ```
 
@@ -150,7 +150,7 @@ jobs:
 
 1. **Verify Installation**: Test installing your package
    ```bash
-   npm install @neuraform/core
+   npm install react-form-engine
    ```
 
 2. **Update Documentation**: Ensure all links and badges are correct
@@ -186,11 +186,13 @@ jobs:
 npm pack --dry-run
 
 # View package info
-npm view @neuraform/core
+npm view react-form-engine
 
 # Unpublish (only within 72 hours)
-npm unpublish @neuraform/core@1.0.0
+npm unpublish react-form-engine@1.0.0
 
 # Deprecate a version
-npm deprecate @neuraform/core@1.0.0 "Use version 1.0.1 instead"
+npm deprecate react-form-engine@1.0.0 "Use version 1.0.1 instead"
 ```
+
+

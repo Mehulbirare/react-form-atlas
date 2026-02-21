@@ -1,18 +1,18 @@
-# @neuraform/visualizer
+# react-form-visualizer
 
-[![npm version](https://img.shields.io/npm/v/@neuraform/visualizer.svg?style=flat-square)](https://www.npmjs.com/package/@neuraform/visualizer)
+[![npm version](https://img.shields.io/npm/v/react-form-visualizer.svg?style=flat-square)](https://www.npmjs.com/package/react-form-visualizer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-**See Your Form Logic.** Generate beautiful flowcharts and insightful statistics from your NeuraForm schemas.
+**See Your Form Logic.** Generate beautiful flowcharts and insightful statistics from your React Form schemas.
 
 ## 📦 Installation
 
 ```bash
 # Install globally
-npm install -g @neuraform/visualizer
+npm install -g react-form-visualizer
 
 # Or run directly with npx
-npx @neuraform/visualizer my-schema.json
+npx react-form-visualizer my-schema.json
 ```
 
 ## ⚡ Quick Start
@@ -20,7 +20,7 @@ npx @neuraform/visualizer my-schema.json
 1.  **Paste your schema** into our live playground (Coming Soon) or use the CLI:
 
     ```bash
-    npx @neuraform/visualizer ./examples/onboarding-schema.json -o flow.html
+    npx react-form-visualizer ./examples/onboarding-schema.json -o flow.html
     ```
 
 2.  **Open `flow.html`** in your browser. You'll see an interactive graph like this:
@@ -30,7 +30,7 @@ npx @neuraform/visualizer my-schema.json
 ## 🖥️ CLI Usage
 
 ```bash
-neuraform-visualizer <schema-file> [options]
+React Form-visualizer <schema-file> [options]
 
 # Options:
 # -o, --output <file>    Output HTML file (Default: schema-visualization.html)
@@ -40,7 +40,7 @@ neuraform-visualizer <schema-file> [options]
 ## 🛠️ Programmatic API
 
 ```javascript
-import { SchemaVisualizer } from '@neuraform/visualizer';
+import { SchemaVisualizer } from 'react-form-visualizer';
 import schema from './onboarding.json';
 
 // Get Mermaid Diagram String
@@ -63,3 +63,7 @@ console.log(stats);
 ## 📄 License
 
 MIT © [Mehul Birare](https://github.com/Mehulbirare)
+
+
+
+

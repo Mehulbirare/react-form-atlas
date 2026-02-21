@@ -1,5 +1,5 @@
 /**
- * Core types for NeuraForm
+ * Core types for React Form
  */
 
 export type TransitionEvent = string;
@@ -63,3 +63,7 @@ export interface FormEngineState {
     history: string[];
     completedSteps: Set<string>;
 }
+
+
+
+

@@ -1,15 +1,13 @@
 /**
- * @neuraform/react - React hooks and components for NeuraForm
+ * react-form-bridge - React hooks and components for React Form
  */
 
-export { useNeuraForm } from './useNeuraForm';
-export type { UseNeuraFormOptions, UseNeuraFormReturn } from './useNeuraForm';
+export { useReactForm } from './useReactForm';
+export type { UseReactFormOptions, UseReactFormReturn } from './useReactForm';
 
 // Re-export core types for convenience
-export type {
-    FormSchema,
-    FormState,
-    FormContext,
-    ValidationRule,
-    ValidationResult
-} from '@neuraform/core';
+export * from 'react-form-engine';
+
+
+
+

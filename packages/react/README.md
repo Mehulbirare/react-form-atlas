@@ -1,22 +1,22 @@
-# @neuraform/react
+# react-form-bridge
 
-[![npm version](https://img.shields.io/npm/v/@neuraform/react.svg?style=flat-square)](https://www.npmjs.com/package/@neuraform/react)
+[![npm version](https://img.shields.io/npm/v/react-form-bridge.svg?style=flat-square)](https://www.npmjs.com/package/react-form-bridge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-**Official React Hooks for NeuraForm.** Build complex branching forms with simple hooks.
+**Official React Hooks for React Form.** Build complex branching forms with simple hooks.
 
 ## 📦 Installation
 
 ```bash
-npm install @neuraform/core @neuraform/react
+npm install react-form-engine react-form-bridge
 ```
 
 ## ⚡ Quick Start
 
-[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-react-ts?file=src%2FApp.tsx&dependencies=@neuraform/react,@neuraform/core)
+[![Try on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-react-ts?file=src%2FApp.tsx&dependencies=react-form-bridge,react-form-engine)
 
 ```tsx
-import { useNeuraForm } from '@neuraform/react';
+import { useReactForm } from 'react-form-bridge';
 
 // Define your map
 const schema = {
@@ -35,7 +35,7 @@ export default function MyForm() {
     back,        // Function to go back
     progress,    // 0-100%
     isReady      // true when engine is initialized
-  } = useNeuraForm({
+  } = useReactForm({
     schema,
     autoSave: true
   });
@@ -74,14 +74,14 @@ export default function MyForm() {
 
 ## 📚 API Reference
 
-### `useNeuraForm(options)`
+### `useReactForm(options)`
 
 #### Options
 | Option | Type | Description |
 | :--- | :--- | :--- |
 | `schema` | `object` | **Required.** The graph definition. |
 | `autoSave` | `boolean` | Enable IndexedDB persistence (Default: `false`). |
-| `storageKey` | `string` | Unique key for storage (Default: `'neuraform'`). |
+| `storageKey` | `string` | Unique key for storage (Default: `'React Form'`). |
 | `onComplete` | `func` | Callback when a final state is reached. |
 
 #### Returns
@@ -98,8 +98,8 @@ export default function MyForm() {
 
 MIT © [Mehul Birare](https://github.com/Mehulbirare)
 ```tsx
-import { useNeuraForm } from '@neuraform/react';
-import type { FormSchema } from '@neuraform/core';
+import { useReactForm } from 'react-form-bridge';
+import type { FormSchema } from 'react-form-engine';
 
 const schema: FormSchema = {
   id: 'onboarding',
@@ -129,7 +129,7 @@ function MyForm() {
     back,
     updateContext,
     isReady
-  } = useNeuraForm({
+  } = useReactForm({
     schema,
     autoSave: true,
     onComplete: (data) => {
@@ -187,7 +187,7 @@ function MyForm() {
 
 ## API
 
-### useNeuraForm(options)
+### useReactForm(options)
 
 **Options:**
 - `schema: FormSchema` - Form schema (required)
@@ -207,7 +207,7 @@ function MyForm() {
 - `back: () => Promise<void>` - Go back function
 - `updateContext: (data) => Promise<void>` - Update context
 - `reset: () => Promise<void>` - Reset form
-- `engine: NeuraFormEngine` - Access to engine instance
+- `engine: FormEngine` - Access to engine instance
 - `isReady: boolean` - Whether engine is initialized
 
 ## Examples
@@ -217,3 +217,7 @@ See the [examples directory](../../examples) for complete implementations.
 ## License
 
 MIT
+
+
+
+

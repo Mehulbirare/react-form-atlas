@@ -1,5 +1,5 @@
 {
-    "name": "neuraform",
+    "name": "react-form",
     "version": "1.0.1",
     "description": "Graph-based form engine that eliminates condition hell in complex multi-step forms",
     "private": true,
@@ -39,10 +39,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Mehulbirare/neura-form.git"
+        "url": "https://github.com/Mehulbirare/react-form.git"
     },
     "bugs": {
-        "url": "https://github.com/Mehulbirare/neura-form/issues"
+        "url": "https://github.com/Mehulbirare/react-form/issues"
     },
-    "homepage": "https://github.com/Mehulbirare/neura-form#readme"
+    "homepage": "https://github.com/Mehulbirare/react-form#readme"
 }

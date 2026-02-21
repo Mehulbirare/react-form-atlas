@@ -25,12 +25,10 @@
             },
             "on": {
                 "SELECT_BUSINESS": {
-                    "target": "businessDetails",
-                    "cond": null
+                    "target": "businessDetails"
                 },
                 "SELECT_INDIVIDUAL": {
-                    "target": "personalDetails",
-                    "cond": null
+                    "target": "personalDetails"
                 }
             }
         },

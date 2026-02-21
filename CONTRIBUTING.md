@@ -1,13 +1,13 @@
-# Contributing to NeuraForm
+# Contributing to React Form
 
-Thank you for your interest in contributing to NeuraForm! 🎉
+Thank you for your interest in contributing to React Form! 🎉
 
 ## Development Setup
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/neuraform.git
-   cd neuraform
+   git clone https://github.com/yourusername/React Form.git
+   cd React Form
    ```
 
 2. **Install dependencies**
@@ -28,7 +28,7 @@ Thank you for your interest in contributing to NeuraForm! 🎉
 ## Project Structure
 
 ```
-neuraform/
+React Form/
 ├── packages/
 │   ├── core/           # Framework-agnostic engine
 │   ├── react/          # React hooks and components
@@ -67,3 +67,5 @@ neuraform/
 ## Questions?
 
 Feel free to open an issue for any questions or concerns!
+
+

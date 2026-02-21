@@ -1,6 +1,6 @@
-# Getting Started with NeuraForm
+# Getting Started with React Form
 
-Welcome to NeuraForm! This guide will help you get started with building graph-based forms that eliminate "condition hell."
+Welcome to React Form! This guide will help you get started with building graph-based forms that eliminate "condition hell."
 
 ## What You'll Build
 
@@ -15,13 +15,13 @@ By the end of this guide, you'll have a working multi-step form with:
 ### For React Projects
 
 ```bash
-npm install @neuraform/core @neuraform/react
+npm install react-form-engine react-form-bridge
 ```
 
 ### For Vanilla JavaScript
 
 ```bash
-npm install @neuraform/core
+npm install react-form-engine
 ```
 
 ## Your First Form
@@ -71,7 +71,7 @@ export const onboardingSchema = {
 ### Step 2: Build Your Form (React)
 
 ```tsx
-import { useNeuraForm } from '@neuraform/react';
+import { useReactForm } from 'react-form-bridge';
 import { onboardingSchema } from './schema';
 
 function OnboardingForm() {
@@ -84,7 +84,7 @@ function OnboardingForm() {
     back,
     updateContext,
     isReady
-  } = useNeuraForm({
+  } = useReactForm({
     schema: onboardingSchema,
     autoSave: true,
     onComplete: (data) => {
@@ -286,7 +286,7 @@ ageCheck: {
 ### Visualize Your Schema
 
 ```bash
-npx @neuraform/visualizer schema.json -o visualization.html
+npx react-form-visualizer schema.json -o visualization.html
 ```
 
 ## Resources
@@ -299,9 +299,11 @@ npx @neuraform/visualizer schema.json -o visualization.html
 ## Need Help?
 
 - 📖 [Documentation](../README.md)
-- 💬 [GitHub Issues](https://github.com/yourusername/neuraform/issues)
+- 💬 [GitHub Issues](https://github.com/yourusername/React Form/issues)
 - 🐦 [Twitter](https://twitter.com/yourusername)
 
 ---
 
 **Happy form building! 🎉**
+
+

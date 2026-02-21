@@ -1,11 +1,11 @@
-# NeuraForm - Project Summary
+# React Form - Project Summary
 
 ## 📦 Package Structure
 
 ```
-neuraform/
+React Form/
 ├── packages/
-│   ├── core/              # @neuraform/core - Framework-agnostic engine
+│   ├── core/              # react-form-engine - Framework-agnostic engine
 │   │   ├── src/
 │   │   │   ├── engine.ts           # Main state machine
 │   │   │   ├── storage.ts          # Auto-save implementation
@@ -18,15 +18,15 @@ neuraform/
 │   │   ├── tsconfig.json
 │   │   └── README.md
 │   │
-│   ├── react/             # @neuraform/react - React integration
+│   ├── react/             # react-form-bridge - React integration
 │   │   ├── src/
-│   │   │   ├── useNeuraForm.ts     # React hook
+│   │   │   ├── useReactForm.ts     # React hook
 │   │   │   └── index.ts            # Public API
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   └── README.md
 │   │
-│   └── visualizer/        # @neuraform/visualizer - Schema visualization
+│   └── visualizer/        # react-form-visualizer - Schema visualization
 │       ├── src/
 │       │   ├── visualizer.ts       # Mermaid generator
 │       │   ├── cli.ts              # CLI tool
@@ -99,15 +99,15 @@ neuraform/
 
 ## 📊 Package Sizes (Estimated)
 
-- `@neuraform/core`: ~8KB gzipped
-- `@neuraform/react`: ~3KB gzipped
-- `@neuraform/visualizer`: ~5KB gzipped
+- `react-form-engine`: ~8KB gzipped
+- `react-form-bridge`: ~3KB gzipped
+- `react-form-visualizer`: ~5KB gzipped
 
 ## 🚀 Next Steps for Publishing
 
 1. **Install Dependencies**
    ```bash
-   cd c:\Users\mehul\Projects\neuraform
+   cd c:\Users\mehul\Projects\React Form
    npm install
    ```
 
@@ -142,7 +142,7 @@ neuraform/
 
 ## 🔑 Key Differentiators
 
-| Feature | Traditional Forms | NeuraForm |
+| Feature | Traditional Forms | React Form |
 |---------|------------------|-----------|
 | Structure | Array of steps | Graph (DAG) |
 | Logic | Imperative if/else | Declarative schema |
@@ -184,7 +184,7 @@ MIT - See `LICENSE` file
 **Tagline**: "Eliminate Condition Hell in Complex Forms"
 
 **Elevator Pitch**:
-"NeuraForm is a graph-based form engine that treats your form like a map. Instead of writing dozens of if/else statements, you define a simple JSON schema, and NeuraForm handles the routing, progress calculation, auto-save, and validation automatically."
+"React Form is a graph-based form engine that treats your form like a map. Instead of writing dozens of if/else statements, you define a simple JSON schema, and React Form handles the routing, progress calculation, auto-save, and validation automatically."
 
 **Key Benefits**:
 1. **10x Less Code**: Replace hundreds of lines of conditional logic with a declarative schema
@@ -200,3 +200,5 @@ MIT - See `LICENSE` file
 **Version**: 1.0.0
 
 **Created**: February 15, 2026
+
+

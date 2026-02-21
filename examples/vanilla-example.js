@@ -1,70 +1,70 @@
 /**
  * Vanilla JavaScript Example
  * 
- * This example shows how to use NeuraForm without any framework
+ * This example shows how to use React Form without any framework
  */
 
-import { NeuraFormEngine } from '@neuraform/core';
+const { FormEngine } = require('react-form-engine');
 
 // Define your form schema
 const schema = {
-    id: 'contact-form',
-    initial: 'contactType',
-    states: {
-        contactType: {
-            id: 'contactType',
-            meta: { weight: 1 },
-            on: {
-                SELECT_SALES: 'salesForm',
-                SELECT_SUPPORT: 'supportForm',
-                SELECT_GENERAL: 'generalForm'
-            }
-        },
-        salesForm: {
-            id: 'salesForm',
-            meta: {
-                weight: 3,
-                validation: [
-                    { type: 'required', message: 'Company name is required' }
-                ]
-            },
-            on: { NEXT: 'complete' }
-        },
-        supportForm: {
-            id: 'supportForm',
-            meta: {
-                weight: 2,
-                validation: [
-                    { type: 'required', message: 'Issue description is required' }
-                ]
-            },
-            on: { NEXT: 'complete' }
-        },
-        generalForm: {
-            id: 'generalForm',
-            meta: { weight: 1 },
-            on: { NEXT: 'complete' }
-        },
-        complete: {
-            id: 'complete',
-            meta: { weight: 1 }
-        }
+  id: 'contact-form',
+  initial: 'contactType',
+  states: {
+    contactType: {
+      id: 'contactType',
+      meta: { weight: 1 },
+      on: {
+        SELECT_SALES: 'salesForm',
+        SELECT_SUPPORT: 'supportForm',
+        SELECT_GENERAL: 'generalForm'
+      }
+    },
+    salesForm: {
+      id: 'salesForm',
+      meta: {
+        weight: 3,
+        validation: [
+          { type: 'required', message: 'Company name is required' }
+        ]
+      },
+      on: { NEXT: 'complete' }
+    },
+    supportForm: {
+      id: 'supportForm',
+      meta: {
+        weight: 2,
+        validation: [
+          { type: 'required', message: 'Issue description is required' }
+        ]
+      },
+      on: { NEXT: 'complete' }
+    },
+    generalForm: {
+      id: 'generalForm',
+      meta: { weight: 1 },
+      on: { NEXT: 'complete' }
+    },
+    complete: {
+      id: 'complete',
+      meta: { weight: 1 }
     }
+  }
 };
 
 // Initialize the engine
-const engine = new NeuraFormEngine({
-    schema,
-    autoSave: true,
-    storageKey: 'contact-form-state',
-    onStepChange: (event) => {
-        console.log(`Step changed: ${event.from} → ${event.to}`);
-        renderCurrentStep();
-    },
-    onComplete: (context) => {
-        console.log('Form completed!', context);
-        submitForm(context);
-    }
+const engine = new FormEngine({
+  schema,
+  autoSave: true,
+  storageKey: 'contact-form-state',
+  onStepChange: (event) => {
+    console.log(`Step changed: ${event.from} → ${event.to}`);
+    renderCurrentStep();
+  },
+  onComplete: (context) => {
+    console.log('Form completed!', context);
+    submitForm(context);
+  }
 });
 
 // DOM elements
@@ -74,44 +74,44 @@ const backButton = document.getElementById('back-button');
 
 // Start the engine
 engine.start().then(() => {
-    renderCurrentStep();
+  renderCurrentStep();
 });
 
 // Render the current step
 function renderCurrentStep() {
-    const currentState = engine.getCurrentState();
-    const context = engine.getContext();
-    const progress = engine.getProgress();
-    const canGoBack = engine.canGoBack();
+  const currentState = engine.getCurrentState();
+  const context = engine.getContext();
+  const progress = engine.getProgress();
+  const canGoBack = engine.canGoBack();
 
-    // Update progress bar
-    progressBar.style.width = `${progress}%`;
+  // Update progress bar
+  progressBar.style.width = `${progress}%`;
 
-    // Update back button
-    backButton.disabled = !canGoBack;
+  // Update back button
+  backButton.disabled = !canGoBack;
 
-    // Render step content
-    switch (currentState) {
-        case 'contactType':
-            renderContactType();
-            break;
-        case 'salesForm':
-            renderSalesForm(context);
-            break;
-        case 'supportForm':
-            renderSupportForm(context);
-            break;
-        case 'generalForm':
-            renderGeneralForm(context);
-            break;
-        case 'complete':
-            renderComplete(context);
-            break;
-    }
+  // Render step content
+  switch (currentState) {
+    case 'contactType':
+      renderContactType();
+      break;
+    case 'salesForm':
+      renderSalesForm(context);
+      break;
+    case 'supportForm':
+      renderSupportForm(context);
+      break;
+    case 'generalForm':
+      renderGeneralForm(context);
+      break;
+    case 'complete':
+      renderComplete(context);
+      break;
+  }
 }
 
 function renderContactType() {
-    app.innerHTML = `
+  app.innerHTML = `
     <div class="step">
       <h2>How can we help you?</h2>
       <div class="options">
@@ -130,7 +130,7 @@ function renderContactType() {
 }
 
 function renderSalesForm(context) {
-    app.innerHTML = `
+  app.innerHTML = `
     <div class="step">
       <h2>Sales Inquiry</h2>
       <form id="sales-form">
@@ -158,20 +158,20 @@ function renderSalesForm(context) {
     </div>
   `;
 
-    document.getElementById('sales-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = {
-            company: document.getElementById('company').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-        await engine.updateContext(data);
-        await engine.transition('NEXT');
-    });
+  document.getElementById('sales-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+      company: document.getElementById('company').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value
+    };
+    await engine.updateContext(data);
+    await engine.transition('NEXT');
+  });
 }
 
 function renderSupportForm(context) {
-    app.innerHTML = `
+  app.innerHTML = `
     <div class="step">
       <h2>Technical Support</h2>
       <form id="support-form">
@@ -198,20 +198,20 @@ function renderSupportForm(context) {
     </div>
   `;
 
-    document.getElementById('support-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = {
-            email: document.getElementById('email').value,
-            priority: document.getElementById('priority').value,
-            issue: document.getElementById('issue').value
-        };
-        await engine.updateContext(data);
-        await engine.transition('NEXT');
-    });
+  document.getElementById('support-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+      email: document.getElementById('email').value,
+      priority: document.getElementById('priority').value,
+      issue: document.getElementById('issue').value
+    };
+    await engine.updateContext(data);
+    await engine.transition('NEXT');
+  });
 }
 
 function renderGeneralForm(context) {
-    app.innerHTML = `
+  app.innerHTML = `
     <div class="step">
       <h2>General Question</h2>
       <form id="general-form">
@@ -232,19 +232,19 @@ function renderGeneralForm(context) {
     </div>
   `;
 
-    document.getElementById('general-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = {
-            email: document.getElementById('email').value,
-            question: document.getElementById('question').value
-        };
-        await engine.updateContext(data);
-        await engine.transition('NEXT');
-    });
+  document.getElementById('general-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+      email: document.getElementById('email').value,
+      question: document.getElementById('question').value
+    };
+    await engine.updateContext(data);
+    await engine.transition('NEXT');
+  });
 }
 
 function renderComplete(context) {
-    app.innerHTML = `
+  app.innerHTML = `
     <div class="step complete">
       <h2>✅ Thank You!</h2>
       <p>We've received your message and will get back to you soon.</p>
@@ -259,28 +259,30 @@ function renderComplete(context) {
 
 // Global functions (for onclick handlers)
 window.selectContactType = async (type) => {
-    await engine.transition(type, { contactType: type });
+  await engine.transition(type, { contactType: type });
 };
 
 window.resetForm = async () => {
-    await engine.reset();
+  await engine.reset();
 };
 
 // Back button handler
 backButton.addEventListener('click', async () => {
-    await engine.back();
+  await engine.back();
 });
 
 // Submit form to backend
 async function submitForm(data) {
-    try {
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        console.log('Form submitted successfully', await response.json());
-    } catch (error) {
-        console.error('Failed to submit form', error);
-    }
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    console.log('Form submitted successfully', await response.json());
+  } catch (error) {
+    console.error('Failed to submit form', error);
+  }
 }
+
+

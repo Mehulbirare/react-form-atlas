@@ -1,4 +1,4 @@
-# NeuraForm - Quick Start Guide
+# React Form - Quick Start Guide
 
 ## ✅ Package Successfully Created!
 
@@ -6,9 +6,9 @@ Your publish-ready NPM package is now complete and built! Here's what you have:
 
 ### 📦 Packages Built
 
-- ✅ **@neuraform/core** - Framework-agnostic engine (12.86 KB)
-- ✅ **@neuraform/react** - React hooks (3.79 KB)
-- ✅ **@neuraform/visualizer** - Schema visualization tool (6.65 KB)
+- ✅ **react-form-engine** - Framework-agnostic engine (12.86 KB)
+- ✅ **react-form-bridge** - React hooks (3.79 KB)
+- ✅ **react-form-visualizer** - Schema visualization tool (6.65 KB)
 
 ## 🚀 Next Steps
 
@@ -17,7 +17,7 @@ Your publish-ready NPM package is now complete and built! Here's what you have:
 Try out the visualizer with the example schema:
 
 ```bash
-cd c:\Users\mehul\Projects\neuraform
+cd c:\Users\mehul\Projects\React Form
 node packages\visualizer\dist\cli.js examples\onboarding-schema.json -o test-visualization.html
 ```
 
@@ -33,19 +33,19 @@ Update the following in all `package.json` files:
 ### 3. Initialize Git Repository
 
 ```bash
-cd c:\Users\mehul\Projects\neuraform
+cd c:\Users\mehul\Projects\React Form
 git add .
-git commit -m "Initial commit: NeuraForm v1.0.0"
+git commit -m "Initial commit: React Form v1.0.0"
 ```
 
 ### 4. Create GitHub Repository
 
 1. Go to https://github.com/new
-2. Create a new repository named "neuraform"
+2. Create a new repository named "React Form"
 3. Follow GitHub's instructions to push your code:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/neuraform.git
+git remote add origin https://github.com/YOUR_USERNAME/React Form.git
 git branch -M main
 git push -u origin main
 ```
@@ -100,7 +100,7 @@ Check out the examples:
 ## 📊 Project Structure
 
 ```
-neuraform/
+React Form/
 ├── packages/
 │   ├── core/              # ✅ Built
 │   ├── react/             # ✅ Built
@@ -145,6 +145,8 @@ If you encounter issues:
 
 ---
 
-**Congratulations! Your NeuraForm package is ready to publish! 🎉**
+**Congratulations! Your React Form package is ready to publish! 🎉**
 
 To get started with development, check out `docs/getting-started.md`
+
+

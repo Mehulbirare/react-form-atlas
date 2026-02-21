@@ -20,22 +20,22 @@
 ╚═══════════════════════════════════════════════════════════╝
 ```
 
-# 🧠 NeuraForm
+# 🧠 React Form
 
 ### Next-Generation Graph-Based Form Engine
 
-[![npm version](https://img.shields.io/npm/v/@neuraform/core?style=for-the-badge&color=cc3534&logo=npm)](https://www.npmjs.com/package/@neuraform/core)
+[![npm version](https://img.shields.io/npm/v/react-form-engine?style=for-the-badge&color=cc3534&logo=npm)](https://www.npmjs.com/package/react-form-engine)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Mehulbirare/neura-form/ci.yml?style=for-the-badge&logo=github)](https://github.com/Mehulbirare/neura-form/actions)
-[![codecov](https://img.shields.io/codecov/c/github/Mehulbirare/neura-form?style=for-the-badge&logo=codecov)](https://codecov.io/gh/Mehulbirare/neura-form)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Mehulbirare/react-form/ci.yml?style=for-the-badge&logo=github)](https://github.com/Mehulbirare/react-form/actions)
+[![codecov](https://img.shields.io/codecov/c/github/Mehulbirare/react-form?style=for-the-badge&logo=codecov)](https://codecov.io/gh/Mehulbirare/react-form)
 
-[![npm downloads](https://img.shields.io/npm/dm/@neuraform/core?style=flat-square&logo=npm)](https://www.npmjs.com/package/@neuraform/core)
+[![npm downloads](https://img.shields.io/npm/dm/react-form-engine?style=flat-square&logo=npm)](https://www.npmjs.com/package/react-form-engine)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/neuraform)
-[![Twitter Follow](https://img.shields.io/twitter/follow/neuraform?style=flat-square&logo=twitter)](https://twitter.com/neuraform)
+[![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/react-form)
+[![Twitter Follow](https://img.shields.io/twitter/follow/React Form?style=flat-square&logo=twitter)](https://twitter.com/react-form)
 
-[🚀 Getting Started](#-quick-start) • [📖 Documentation](https://neuraform.dev/docs) • [🎮 Live Demo](https://demo.neuraform.dev) • [💬 Discord](https://discord.gg/neuraform) • [🐛 Report Bug](https://github.com/Mehulbirare/neura-form/issues) • [✨ Request Feature](https://github.com/Mehulbirare/neura-form/issues)
+[🚀 Getting Started](#-quick-start) • [📖 Documentation](https://react-form.dev/docs) • [🎮 Live Demo](https://demo.react-form.dev) • [💬 Discord](https://discord.gg/react-form) • [🐛 Report Bug](https://github.com/Mehulbirare/react-form/issues) • [✨ Request Feature](https://github.com/Mehulbirare/react-form/issues)
 
 </div>
 
@@ -45,7 +45,7 @@
 
 - [Overview](#-overview)
 - [Features](#-features)
-- [Why NeuraForm?](#-why-neuraform)
+- [Why React Form?](#-why-React Form)
 - [Quick Start](#-quick-start)
 - [Packages](#-packages)
 - [Core Concepts](#-core-concepts)
@@ -65,7 +65,7 @@
 
 ## 🎯 Overview
 
-**NeuraForm** is a revolutionary form management library that treats complex, multi-step forms as navigable graphs. By modeling your forms as **Finite State Machines (FSM)** with **Directed Acyclic Graph (DAG)** navigation, NeuraForm eliminates the chaos of conditional logic and provides predictable, testable, and maintainable form flows.
+**React Form** is a revolutionary form management library that treats complex, multi-step forms as navigable graphs. By modeling your forms as **Finite State Machines (FSM)** with **Directed Acyclic Graph (DAG)** navigation, React Form eliminates the chaos of conditional logic and provides predictable, testable, and maintainable form flows.
 
 > **Eliminate "Condition Hell" — Build forms that scale from 5 to 500 steps without breaking a sweat.**
 
@@ -73,11 +73,11 @@
 
 ```bash
 # Try our interactive demo
-npx @neuraform/create-app my-form-app
+npx react-form-create-app my-form-app
 cd my-form-app && npm start
 ```
 
-[![Demo](https://img.shields.io/badge/Live%20Demo-View%20Now-brightgreen?style=for-the-badge)](https://demo.neuraform.dev)
+[![Demo](https://img.shields.io/badge/Live%20Demo-View%20Now-brightgreen?style=for-the-badge)](https://demo.react-form.dev)
 
 ---
 
@@ -132,7 +132,7 @@ cd my-form-app && npm start
 
 ---
 
-## 🤔 Why NeuraForm?
+## 🤔 Why React Form?
 
 ### The Problem: Traditional Form Complexity
 
@@ -166,7 +166,7 @@ function handleNext() {
 - ❌ **No Visibility:** Impossible to visualize the flow
 - ❌ **Merge Conflicts:** Team collaboration nightmare
 
-### The NeuraForm Solution
+### The React Form Solution
 
 ```tsx
 // ✅ Declarative, visual, maintainable
@@ -189,7 +189,7 @@ const schema = {
   }
 };
 
-const { currentStep, transition, progress } = useNeuraForm({ schema });
+const { currentStep, transition, progress } = useReactForm({ schema });
 ```
 
 **Benefits:**
@@ -208,25 +208,25 @@ const { currentStep, transition, progress } = useNeuraForm({ schema });
 
 ```bash
 # npm
-npm install @neuraform/core @neuraform/react
+npm install react-form-engine react-form-bridge
 
 # yarn
-yarn add @neuraform/core @neuraform/react
+yarn add react-form-engine react-form-bridge
 
 # pnpm
-pnpm add @neuraform/core @neuraform/react
+pnpm add react-form-engine react-form-bridge
 
 # bun
-bun add @neuraform/core @neuraform/react
+bun add react-form-engine react-form-bridge
 ```
 
 ### Basic Example
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/neuraform-quickstart)
-[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?style=flat-square&logo=codesandbox)](https://codesandbox.io/s/neuraform-quickstart)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/React Form-quickstart)
+[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?style=flat-square&logo=codesandbox)](https://codesandbox.io/s/React Form-quickstart)
 
 ```tsx
-import { useNeuraForm } from '@neuraform/react';
+import { useReactForm } from 'react-form-bridge';
 
 const onboardingSchema = {
   id: 'user-onboarding',
@@ -286,7 +286,7 @@ export default function OnboardingFlow() {
     progress,
     context,
     updateContext
-  } = useNeuraForm({
+  } = useReactForm({
     schema: onboardingSchema,
     autoSave: true,
     storageKey: 'onboarding-v1',
@@ -340,19 +340,19 @@ export default function OnboardingFlow() {
 
 ## 📦 Packages
 
-NeuraForm is architected as a modular monorepo, allowing you to install only what you need.
+React Form is architected as a modular monorepo, allowing you to install only what you need.
 
 | Package | Version | Size | Description |
 |---------|---------|------|-------------|
-| **[@neuraform/core](./packages/core)** | [![npm](https://img.shields.io/npm/v/@neuraform/core?style=flat-square)](https://www.npmjs.com/package/@neuraform/core) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/core?style=flat-square) | Framework-agnostic state machine engine |
-| **[@neuraform/react](./packages/react)** | [![npm](https://img.shields.io/npm/v/@neuraform/react?style=flat-square)](https://www.npmjs.com/package/@neuraform/react) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/react?style=flat-square) | React hooks and components |
-| **[@neuraform/vue](./packages/vue)** | [![npm](https://img.shields.io/npm/v/@neuraform/vue?style=flat-square)](https://www.npmjs.com/package/@neuraform/vue) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/vue?style=flat-square) | Vue 3 composables |
-| **[@neuraform/svelte](./packages/svelte)** | [![npm](https://img.shields.io/npm/v/@neuraform/svelte?style=flat-square)](https://www.npmjs.com/package/@neuraform/svelte) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/svelte?style=flat-square) | Svelte stores and actions |
-| **[@neuraform/angular](./packages/angular)** | [![npm](https://img.shields.io/npm/v/@neuraform/angular?style=flat-square)](https://www.npmjs.com/package/@neuraform/angular) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/angular?style=flat-square) | Angular services and directives |
-| **[@neuraform/validator](./packages/validator)** | [![npm](https://img.shields.io/npm/v/@neuraform/validator?style=flat-square)](https://www.npmjs.com/package/@neuraform/validator) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/validator?style=flat-square) | Schema validation with Zod/Yup integration |
-| **[@neuraform/visualizer](./packages/visualizer)** | [![npm](https://img.shields.io/npm/v/@neuraform/visualizer?style=flat-square)](https://www.npmjs.com/package/@neuraform/visualizer) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/visualizer?style=flat-square) | CLI tool to generate flowcharts |
-| **[@neuraform/devtools](./packages/devtools)** | [![npm](https://img.shields.io/npm/v/@neuraform/devtools?style=flat-square)](https://www.npmjs.com/package/@neuraform/devtools) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/devtools?style=flat-square) | Browser extension for debugging |
-| **[@neuraform/persistence](./packages/persistence)** | [![npm](https://img.shields.io/npm/v/@neuraform/persistence?style=flat-square)](https://www.npmjs.com/package/@neuraform/persistence) | ![size](https://img.shields.io/bundlephobia/minzip/@neuraform/persistence?style=flat-square) | Advanced storage adapters (IndexedDB, Firebase, etc.) |
+| **[react-form-engine](./packages/core)** | [![npm](https://img.shields.io/npm/v/react-form-engine?style=flat-square)](https://www.npmjs.com/package/react-form-engine) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-engine?style=flat-square) | Framework-agnostic state machine engine |
+| **[react-form-bridge](./packages/react)** | [![npm](https://img.shields.io/npm/v/react-form-bridge?style=flat-square)](https://www.npmjs.com/package/react-form-bridge) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-bridge?style=flat-square) | React hooks and components |
+| **[react-form-vue](./packages/vue)** | [![npm](https://img.shields.io/npm/v/react-form-vue?style=flat-square)](https://www.npmjs.com/package/react-form-vue) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-vue?style=flat-square) | Vue 3 composables |
+| **[react-form-svelte](./packages/svelte)** | [![npm](https://img.shields.io/npm/v/react-form-svelte?style=flat-square)](https://www.npmjs.com/package/react-form-svelte) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-svelte?style=flat-square) | Svelte stores and actions |
+| **[react-form-angular](./packages/angular)** | [![npm](https://img.shields.io/npm/v/react-form-angular?style=flat-square)](https://www.npmjs.com/package/react-form-angular) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-angular?style=flat-square) | Angular services and directives |
+| **[react-form-validator](./packages/validator)** | [![npm](https://img.shields.io/npm/v/react-form-validator?style=flat-square)](https://www.npmjs.com/package/react-form-validator) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-validator?style=flat-square) | Schema validation with Zod/Yup integration |
+| **[react-form-visualizer](./packages/visualizer)** | [![npm](https://img.shields.io/npm/v/react-form-visualizer?style=flat-square)](https://www.npmjs.com/package/react-form-visualizer) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-visualizer?style=flat-square) | CLI tool to generate flowcharts |
+| **[react-form-devtools](./packages/devtools)** | [![npm](https://img.shields.io/npm/v/react-form-devtools?style=flat-square)](https://www.npmjs.com/package/react-form-devtools) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-devtools?style=flat-square) | Browser extension for debugging |
+| **[react-form-persistence](./packages/persistence)** | [![npm](https://img.shields.io/npm/v/react-form-persistence?style=flat-square)](https://www.npmjs.com/package/react-form-persistence) | ![size](https://img.shields.io/bundlephobia/minzip/react-form-persistence?style=flat-square) | Advanced storage adapters (IndexedDB, Firebase, etc.) |
 
 ---
 
@@ -360,7 +360,7 @@ NeuraForm is architected as a modular monorepo, allowing you to install only wha
 
 ### 1. Graph-Based Navigation
 
-NeuraForm models forms as **Directed Acyclic Graphs (DAG)**, where each step is a node and transitions are edges.
+React Form models forms as **Directed Acyclic Graphs (DAG)**, where each step is a node and transitions are edges.
 
 ```mermaid
 graph TD
@@ -387,7 +387,7 @@ graph TD
 
 ### 2. Finite State Machine
 
-At its core, NeuraForm uses FSM principles to ensure your form is always in a valid, predictable state.
+At its core, React Form uses FSM principles to ensure your form is always in a valid, predictable state.
 
 ```tsx
 const schema = {
@@ -424,7 +424,7 @@ const schema = {
 Store and manage form data separately from UI state:
 
 ```tsx
-const { context, updateContext } = useNeuraForm({
+const { context, updateContext } = useReactForm({
   schema,
   initialContext: {
     user: { name: '', email: '' },
@@ -500,7 +500,7 @@ const actions = {
   }
 };
 
-useNeuraForm({ schema, actions });
+useReactForm({ schema, actions });
 ```
 
 ---
@@ -511,8 +511,8 @@ useNeuraForm({ schema, actions });
 
 A complete checkout flow with cart, shipping, payment, and confirmation steps.
 
-[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/neura-form/tree/main/examples/ecommerce)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.neuraform.dev/ecommerce)
+[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/react-form/tree/main/examples/ecommerce)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.react-form.dev/ecommerce)
 
 ```tsx
 const checkoutSchema = {
@@ -558,35 +558,35 @@ const checkoutSchema = {
 
 Dynamic form that adapts based on tenant type and plan selection.
 
-[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/neura-form/tree/main/examples/onboarding)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.neuraform.dev/onboarding)
+[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/react-form/tree/main/examples/onboarding)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.react-form.dev/onboarding)
 
 ### Example 3: Medical Intake Form
 
 HIPAA-compliant medical intake with conditional symptom questions.
 
-[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/neura-form/tree/main/examples/medical)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.neuraform.dev/medical)
+[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/react-form/tree/main/examples/medical)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.react-form.dev/medical)
 
 ### Example 4: Survey Builder
 
 Create complex surveys with skip logic and branching questions.
 
-[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/neura-form/tree/main/examples/survey)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.neuraform.dev/survey)
+[![View on GitHub](https://img.shields.io/badge/View-Source-blue?style=flat-square&logo=github)](https://github.com/Mehulbirare/react-form/tree/main/examples/survey)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://examples.react-form.dev/survey)
 
 **More Examples:**
-- 📝 [Job Application](https://github.com/Mehulbirare/neura-form/tree/main/examples/job-application)
-- 🏦 [Loan Application](https://github.com/Mehulbirare/neura-form/tree/main/examples/loan)
-- 🎓 [University Enrollment](https://github.com/Mehulbirare/neura-form/tree/main/examples/enrollment)
-- 🏥 [Insurance Claims](https://github.com/Mehulbirare/neura-form/tree/main/examples/insurance)
-- 🎯 [Lead Qualification](https://github.com/Mehulbirare/neura-form/tree/main/examples/lead-gen)
+- 📝 [Job Application](https://github.com/Mehulbirare/react-form/tree/main/examples/job-application)
+- 🏦 [Loan Application](https://github.com/Mehulbirare/react-form/tree/main/examples/loan)
+- 🎓 [University Enrollment](https://github.com/Mehulbirare/react-form/tree/main/examples/enrollment)
+- 🏥 [Insurance Claims](https://github.com/Mehulbirare/react-form/tree/main/examples/insurance)
+- 🎯 [Lead Qualification](https://github.com/Mehulbirare/react-form/tree/main/examples/lead-gen)
 
 ---
 
 ## 🏗️ Architecture
 
-NeuraForm follows a clean, modular architecture:
+React Form follows a clean, modular architecture:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -598,7 +598,7 @@ NeuraForm follows a clean, modular architecture:
           └──────────┬──────────┘
                      │
           ┌──────────┴──────────┐
-          │   NeuraForm Core    │  (State Machine Engine)
+          │   React Form Core    │  (State Machine Engine)
           └──────────┬──────────┘
                      │
     ┌────────────────┼────────────────┐
@@ -639,23 +639,23 @@ Validation:
 
 ## 🎯 Use Cases
 
-NeuraForm excels in these scenarios:
+React Form excels in these scenarios:
 
 | Industry | Use Case | Complexity | Demo |
 |----------|----------|------------|------|
-| 🏦 **Finance** | Loan applications, KYC forms | High | [View](https://examples.neuraform.dev/finance) |
-| 🏥 **Healthcare** | Patient intake, insurance claims | High | [View](https://examples.neuraform.dev/health) |
-| 🛒 **E-commerce** | Checkout flows, product customization | Medium | [View](https://examples.neuraform.dev/ecom) |
-| 🎓 **Education** | Enrollment, course registration | Medium | [View](https://examples.neuraform.dev/edu) |
-| 💼 **HR** | Job applications, onboarding | Medium | [View](https://examples.neuraform.dev/hr) |
-| 📊 **Research** | Surveys, data collection | High | [View](https://examples.neuraform.dev/survey) |
-| 🏗️ **SaaS** | User onboarding, account setup | Low-Medium | [View](https://examples.neuraform.dev/saas) |
+| 🏦 **Finance** | Loan applications, KYC forms | High | [View](https://examples.react-form.dev/finance) |
+| 🏥 **Healthcare** | Patient intake, insurance claims | High | [View](https://examples.react-form.dev/health) |
+| 🛒 **E-commerce** | Checkout flows, product customization | Medium | [View](https://examples.react-form.dev/ecom) |
+| 🎓 **Education** | Enrollment, course registration | Medium | [View](https://examples.react-form.dev/edu) |
+| 💼 **HR** | Job applications, onboarding | Medium | [View](https://examples.react-form.dev/hr) |
+| 📊 **Research** | Surveys, data collection | High | [View](https://examples.react-form.dev/survey) |
+| 🏗️ **SaaS** | User onboarding, account setup | Low-Medium | [View](https://examples.react-form.dev/saas) |
 
 ---
 
 ## 🔧 Configuration Options
 
-NeuraForm is highly configurable to match your needs:
+React Form is highly configurable to match your needs:
 
 ```typescript
 const config = {
@@ -705,7 +705,7 @@ const config = {
 
 ## 📚 API Reference
 
-### useNeuraForm Hook (React)
+### useReactForm Hook (React)
 
 ```tsx
 const {
@@ -736,7 +736,7 @@ const {
   save,
   load,
   clear
-} = useNeuraForm({
+} = useReactForm({
   schema,
   initialContext,
   initialStep,
@@ -753,9 +753,9 @@ const {
 ### Core API (Framework-Agnostic)
 
 ```tsx
-import { createNeuraForm } from '@neuraform/core';
+import { createReact Form } from 'react-form-engine';
 
-const machine = createNeuraForm({
+const machine = createReact Form({
   schema,
   initialContext,
   actions,
@@ -779,7 +779,7 @@ const state = machine.getState();
 ### Schema Definition
 
 ```tsx
-interface NeuraFormSchema {
+interface React FormSchema {
   id?: string;
   initial: string;
   context?: Record<string, any>;
@@ -814,7 +814,7 @@ interface TransitionConfig {
 }
 ```
 
-**[→ Full API Documentation](https://neuraform.dev/docs/api)**
+**[→ Full API Documentation](https://react-form.dev/docs/api)**
 
 ---
 
@@ -823,36 +823,36 @@ interface TransitionConfig {
 ### Official Integrations
 
 - **🎨 UI Libraries:**
-  - [Material-UI](https://github.com/Mehulbirare/neura-form/tree/main/integrations/mui)
-  - [Ant Design](https://github.com/Mehulbirare/neura-form/tree/main/integrations/antd)
-  - [Chakra UI](https://github.com/Mehulbirare/neura-form/tree/main/integrations/chakra)
-  - [shadcn/ui](https://github.com/Mehulbirare/neura-form/tree/main/integrations/shadcn)
+  - [Material-UI](https://github.com/Mehulbirare/react-form/tree/main/integrations/mui)
+  - [Ant Design](https://github.com/Mehulbirare/react-form/tree/main/integrations/antd)
+  - [Chakra UI](https://github.com/Mehulbirare/react-form/tree/main/integrations/chakra)
+  - [shadcn/ui](https://github.com/Mehulbirare/react-form/tree/main/integrations/shadcn)
 
 - **✅ Validation:**
-  - [Zod](https://github.com/Mehulbirare/neura-form/tree/main/integrations/zod)
-  - [Yup](https://github.com/Mehulbirare/neura-form/tree/main/integrations/yup)
-  - [Joi](https://github.com/Mehulbirare/neura-form/tree/main/integrations/joi)
+  - [Zod](https://github.com/Mehulbirare/react-form/tree/main/integrations/zod)
+  - [Yup](https://github.com/Mehulbirare/react-form/tree/main/integrations/yup)
+  - [Joi](https://github.com/Mehulbirare/react-form/tree/main/integrations/joi)
 
 - **📊 Analytics:**
-  - [Google Analytics](https://github.com/Mehulbirare/neura-form/tree/main/integrations/google-analytics)
-  - [Mixpanel](https://github.com/Mehulbirare/neura-form/tree/main/integrations/mixpanel)
-  - [Segment](https://github.com/Mehulbirare/neura-form/tree/main/integrations/segment)
+  - [Google Analytics](https://github.com/Mehulbirare/react-form/tree/main/integrations/google-analytics)
+  - [Mixpanel](https://github.com/Mehulbirare/react-form/tree/main/integrations/mixpanel)
+  - [Segment](https://github.com/Mehulbirare/react-form/tree/main/integrations/segment)
 
 ### Community Plugins
 
-Browse the [Plugin Marketplace](https://neuraform.dev/plugins) for community-contributed extensions.
+Browse the [Plugin Marketplace](https://react-form.dev/plugins) for community-contributed extensions.
 
 ---
 
 ## ⚡ Performance
 
-NeuraForm is optimized for both bundle size and runtime performance.
+React Form is optimized for both bundle size and runtime performance.
 
 ### Bundle Size
 
 ```
-@neuraform/core     ~8KB  (gzipped)
-@neuraform/react    ~3KB  (gzipped)
+react-form-engine     ~8KB  (gzipped)
+react-form-bridge    ~3KB  (gzipped)
 Total               ~11KB (gzipped)
 ```
 
@@ -873,7 +873,7 @@ Compare with alternatives:
 
 *Tested on MacBook Pro M1, Chrome 120*
 
-**[→ View Full Benchmarks](https://neuraform.dev/benchmarks)**
+**[→ View Full Benchmarks](https://react-form.dev/benchmarks)**
 
 ---
 
@@ -889,7 +889,7 @@ Compare with alternatives:
 | iOS Safari | ≥ 14 |
 | Chrome Android | ≥ 90 |
 
-**Polyfills:** NeuraForm uses modern JavaScript features. For older browsers, include:
+**Polyfills:** React Form uses modern JavaScript features. For older browsers, include:
 - Promise
 - Map/Set
 - Proxy
@@ -908,8 +908,8 @@ const formik = useFormik({
   onSubmit: values => { /* ... */ }
 });
 
-// After (NeuraForm)
-const { context, updateContext } = useNeuraForm({
+// After (React Form)
+const { context, updateContext } = useReactForm({
   schema: mySchema,
   initialContext: { name: '', email: '' },
   onComplete: (data) => { /* ... */ }
@@ -922,13 +922,13 @@ const { context, updateContext } = useNeuraForm({
 // Before (React Hook Form)
 const { register, handleSubmit } = useForm();
 
-// After (NeuraForm)
-const { context, updateContext, transition } = useNeuraForm({
+// After (React Form)
+const { context, updateContext, transition } = useReactForm({
   schema: mySchema
 });
 ```
 
-**[→ Complete Migration Guide](https://neuraform.dev/docs/migration)**
+**[→ Complete Migration Guide](https://react-form.dev/docs/migration)**
 
 ---
 
@@ -940,8 +940,8 @@ We love contributions! Please read our [Contributing Guide](CONTRIBUTING.md) to 
 
 ```bash
 # Clone the repository
-git clone https://github.com/Mehulbirare/neura-form.git
-cd neura-form
+git clone https://github.com/Mehulbirare/react-form.git
+cd react-form
 
 # Install dependencies
 pnpm install
@@ -956,13 +956,13 @@ pnpm dev
 pnpm build
 
 # Run examples
-pnpm --filter @neuraform/example-react dev
+pnpm --filter react-form-example-react dev
 ```
 
 ### Project Structure
 
 ```
-neura-form/
+react-form/
 ├── packages/
 │   ├── core/           # Core state machine
 │   ├── react/          # React bindings
@@ -1006,17 +1006,17 @@ chore: maintenance tasks
 
 Join our growing community of developers!
 
-- 💬 **[Discord](https://discord.gg/neuraform)** — Get help, share ideas, and chat with the team
-- 🐦 **[Twitter](https://twitter.com/neuraform)** — Follow for updates and tips
-- 📧 **[Newsletter](https://neuraform.dev/newsletter)** — Monthly updates and tutorials
-- 📝 **[Blog](https://neuraform.dev/blog)** — Deep dives and case studies
-- 🎥 **[YouTube](https://youtube.com/@neuraform)** — Video tutorials and demos
-- 💼 **[LinkedIn](https://linkedin.com/company/neuraform)** — Professional updates
+- 💬 **[Discord](https://discord.gg/react-form)** — Get help, share ideas, and chat with the team
+- 🐦 **[Twitter](https://twitter.com/react-form)** — Follow for updates and tips
+- 📧 **[Newsletter](https://react-form.dev/newsletter)** — Monthly updates and tutorials
+- 📝 **[Blog](https://react-form.dev/blog)** — Deep dives and case studies
+- 🎥 **[YouTube](https://youtube.com/@React Form)** — Video tutorials and demos
+- 💼 **[LinkedIn](https://linkedin.com/company/React Form)** — Professional updates
 
 ### 👥 Core Team
 
 - **[Mehul Birare](https://github.com/Mehulbirare)** - Creator & Lead Maintainer
-- Looking for core team members! [Apply here](https://github.com/Mehulbirare/neura-form/discussions)
+- Looking for core team members! [Apply here](https://github.com/Mehulbirare/react-form/discussions)
 
 ### 🙌 Top Contributors
 
@@ -1029,7 +1029,7 @@ We appreciate every contribution, big or small! Join our list of contributors:
 💡 1+ commits     █░░░░░░░░░ Community Contributors
 ```
 
-**[→ View All Contributors](https://github.com/Mehulbirare/neura-form/graphs/contributors)**
+**[→ View All Contributors](https://github.com/Mehulbirare/react-form/graphs/contributors)**
 
 ---
 
@@ -1059,17 +1059,17 @@ We appreciate every contribution, big or small! Join our list of contributors:
 - 📅 Multi-language support
 - 📅 Cloud sync service
 
-**[→ View Full Roadmap](https://github.com/Mehulbirare/neura-form/projects)**
+**[→ View Full Roadmap](https://github.com/Mehulbirare/react-form/projects)**
 
 ---
 
 ## 💖 Sponsors
 
-NeuraForm is an MIT-licensed open source project. Development is made possible by our sponsors:
+React Form is an MIT-licensed open source project. Development is made possible by our sponsors:
 
 ### 🥇 Gold Sponsors ($500+/month)
 
-Support NeuraForm's development and get your company featured here!
+Support React Form's development and get your company featured here!
 
 ### 🥈 Silver Sponsors ($250+/month)
 
@@ -1089,7 +1089,7 @@ Every contribution matters! Join our sponsors today.
 
 ## 🙏 Acknowledgments
 
-NeuraForm is inspired by:
+React Form is inspired by:
 - [XState](https://xstate.js.org/) — Finite state machines
 - [React Router](https://reactrouter.com/) — Navigation paradigms
 - [Formik](https://formik.org/) — Form management
@@ -1100,9 +1100,9 @@ Special thanks to the open-source community for making this possible!
 
 ## 📊 Detailed Comparison
 
-### NeuraForm vs. Alternatives
+### React Form vs. Alternatives
 
-| Feature | NeuraForm | Formik | React Hook Form | Redux Form | Final Form |
+| Feature | React Form | Formik | React Hook Form | Redux Form | Final Form |
 |---------|-----------|--------|-----------------|------------|------------|
 | **Multi-step Forms** | ✅ Native | 🟡 Manual | 🟡 Manual | 🟡 Manual | 🟡 Manual |
 | **State Machine** | ✅ Built-in | ❌ | ❌ | ❌ | ❌ |
@@ -1117,9 +1117,9 @@ Special thanks to the open-source community for making this possible!
 | **Learning Curve** | Medium | Low | Low | High | Medium |
 | **Best For** | Multi-step | Simple | Performance | Legacy | Balance |
 
-### When to Use NeuraForm
+### When to Use React Form
 
-✅ **Use NeuraForm when:**
+✅ **Use React Form when:**
 - Building multi-step forms (3+ steps)
 - Need conditional branching logic
 - Want visual flow documentation
@@ -1128,7 +1128,7 @@ Special thanks to the open-source community for making this possible!
 - Building surveys or wizards
 - Complex user journeys
 
-❌ **Don't use NeuraForm when:**
+❌ **Don't use React Form when:**
 - Single-page forms with many fields
 - Simple contact forms
 - Performance is critical over features
@@ -1157,11 +1157,11 @@ Special thanks to the open-source community for making this possible!
 
 ### Testimonials
 
-> "NeuraForm transformed our onboarding process. What used to take 2 weeks to build now takes 2 days. The visual schema makes it easy for our product team to understand and modify flows without touching code."
+> "React Form transformed our onboarding process. What used to take 2 weeks to build now takes 2 days. The visual schema makes it easy for our product team to understand and modify flows without touching code."
 > 
 > **— Sarah Chen, Engineering Lead @ TechCorp**
 
-> "We handle complex loan applications with 50+ conditional steps. NeuraForm's state machine approach gave us confidence that our logic was bulletproof. Zero production issues in 6 months."
+> "We handle complex loan applications with 50+ conditional steps. React Form's state machine approach gave us confidence that our logic was bulletproof. Zero production issues in 6 months."
 >
 > **— Michael Rodriguez, Senior Dev @ FinanceApp**
 
@@ -1174,31 +1174,31 @@ Special thanks to the open-source community for making this possible!
 ## ❓ Frequently Asked Questions
 
 <details>
-<summary><b>How does NeuraForm compare to Formik or React Hook Form?</b></summary>
+<summary><b>How does React Form compare to Formik or React Hook Form?</b></summary>
 
-NeuraForm is fundamentally different. While Formik and RHF focus on field-level validation and state management, NeuraForm models your entire form as a state machine with graph-based navigation. Use NeuraForm for multi-step, conditional forms. Use Formik/RHF for single-page forms with many fields.
+React Form is fundamentally different. While Formik and RHF focus on field-level validation and state management, React Form models your entire form as a state machine with graph-based navigation. Use React Form for multi-step, conditional forms. Use Formik/RHF for single-page forms with many fields.
 
 **Comparison:**
-- **NeuraForm**: Multi-step flows, conditional branching, complex navigation
+- **React Form**: Multi-step flows, conditional branching, complex navigation
 - **Formik/RHF**: Single-page forms, field validation, simple submit flows
 </details>
 
 <details>
-<summary><b>Can I use NeuraForm with my existing form library?</b></summary>
+<summary><b>Can I use React Form with my existing form library?</b></summary>
 
-Absolutely! NeuraForm handles flow logic and navigation. You can still use Formik, RHF, or any validation library for individual step validation. Many users combine `@neuraform/react` + `react-hook-form` for the best of both worlds.
+Absolutely! React Form handles flow logic and navigation. You can still use Formik, RHF, or any validation library for individual step validation. Many users combine `react-form-bridge` + `react-hook-form` for the best of both worlds.
 </details>
 
 <details>
-<summary><b>Does NeuraForm work with TypeScript?</b></summary>
+<summary><b>Does React Form work with TypeScript?</b></summary>
 
-Yes! NeuraForm is written in TypeScript and provides full type safety. Your schemas, context, and events are all typed, giving you autocomplete and compile-time error checking.
+Yes! React Form is written in TypeScript and provides full type safety. Your schemas, context, and events are all typed, giving you autocomplete and compile-time error checking.
 </details>
 
 <details>
 <summary><b>How do I handle authentication in multi-step forms?</b></summary>
 
-NeuraForm supports "guarded transitions" where you can check authentication state before allowing users to proceed:
+React Form supports "guarded transitions" where you can check authentication state before allowing users to proceed:
 
 ```typescript
 const schema = {
@@ -1223,19 +1223,19 @@ const guards = {
 <details>
 <summary><b>Can I use this in production?</b></summary>
 
-Yes! NeuraForm is stable and used in production by 200+ companies. We maintain 100% test coverage and follow semantic versioning. The API is stable and we're committed to backward compatibility.
+Yes! React Form is stable and used in production by 200+ companies. We maintain 100% test coverage and follow semantic versioning. The API is stable and we're committed to backward compatibility.
 </details>
 
 <details>
 <summary><b>What's the bundle size impact?</b></summary>
 
-NeuraForm Core is ~8KB gzipped. With React bindings, the total is ~11KB. This is smaller than most form libraries because we handle navigation logic declaratively rather than imperatively.
+React Form Core is ~8KB gzipped. With React bindings, the total is ~11KB. This is smaller than most form libraries because we handle navigation logic declaratively rather than imperatively.
 </details>
 
 <details>
 <summary><b>How do I debug complex form flows?</b></summary>
 
-Install `@neuraform/devtools` browser extension! It provides:
+Install `react-form-devtools` browser extension! It provides:
 - Visual state machine inspector
 - Time-travel debugging
 - State history and replay
@@ -1243,7 +1243,7 @@ Install `@neuraform/devtools` browser extension! It provides:
 - Event logging
 
 ```bash
-npm install @neuraform/devtools
+npm install react-form-devtools
 ```
 </details>
 
@@ -1254,14 +1254,14 @@ Yes! Your schema is just a JavaScript object, so you can generate it dynamically
 
 ```typescript
 const schemaFromAPI = await fetch('/api/form-schema').then(r => r.json());
-const { currentStep, transition } = useNeuraForm({ schema: schemaFromAPI });
+const { currentStep, transition } = useReactForm({ schema: schemaFromAPI });
 ```
 </details>
 
 <details>
 <summary><b>Does it support internationalization (i18n)?</b></summary>
 
-NeuraForm doesn't dictate how you handle i18n. Store translations in the `meta` field of each state and use your preferred i18n library (react-i18next, FormatJS, etc.) in your components.
+React Form doesn't dictate how you handle i18n. Store translations in the `meta` field of each state and use your preferred i18n library (react-i18next, FormatJS, etc.) in your components.
 </details>
 
 ---
@@ -1269,27 +1269,27 @@ NeuraForm doesn't dictate how you handle i18n. Store translations in the `meta` 
 ## 🎓 Learning Resources
 
 ### Official Documentation
-- 📖 [Getting Started Guide](https://neuraform.dev/docs/getting-started)
-- 🎯 [Core Concepts](https://neuraform.dev/docs/concepts)
-- 🔌 [API Reference](https://neuraform.dev/docs/api)
-- 🎨 [UI Integration Guides](https://neuraform.dev/docs/integrations)
+- 📖 [Getting Started Guide](https://react-form.dev/docs/getting-started)
+- 🎯 [Core Concepts](https://react-form.dev/docs/concepts)
+- 🔌 [API Reference](https://react-form.dev/docs/api)
+- 🎨 [UI Integration Guides](https://react-form.dev/docs/integrations)
 
 ### Tutorials & Articles
-- 📝 [Building a Multi-Step Form in React](https://neuraform.dev/blog/multi-step-forms)
-- 🏗️ [State Machine Pattern for Forms](https://neuraform.dev/blog/state-machines)
-- ⚡ [Optimizing Form Performance](https://neuraform.dev/blog/performance)
-- 🔐 [Handling Sensitive Data](https://neuraform.dev/blog/security)
+- 📝 [Building a Multi-Step Form in React](https://react-form.dev/blog/multi-step-forms)
+- 🏗️ [State Machine Pattern for Forms](https://react-form.dev/blog/state-machines)
+- ⚡ [Optimizing Form Performance](https://react-form.dev/blog/performance)
+- 🔐 [Handling Sensitive Data](https://react-form.dev/blog/security)
 
 ### Video Content
-- 🎥 [NeuraForm in 5 Minutes](https://youtube.com/@neuraform/quickstart)
-- 🎬 [Complete Course: Advanced Forms](https://youtube.com/@neuraform/course)
-- 🛠️ [Workshop: E-Commerce Checkout](https://youtube.com/@neuraform/workshop)
+- 🎥 [React Form in 5 Minutes](https://youtube.com/react-form-quickstart)
+- 🎬 [Complete Course: Advanced Forms](https://youtube.com/react-form-course)
+- 🛠️ [Workshop: E-Commerce Checkout](https://youtube.com/react-form-workshop)
 
 ### Community Resources
-- 💡 [Tips & Tricks](https://neuraform.dev/tips)
-- 🎨 [Component Library](https://neuraform.dev/components)
-- 🔧 [Recipes & Patterns](https://neuraform.dev/recipes)
-- 📦 [Example Projects](https://github.com/Mehulbirare/neura-form/tree/main/examples)
+- 💡 [Tips & Tricks](https://react-form.dev/tips)
+- 🎨 [Component Library](https://react-form.dev/components)
+- 🔧 [Recipes & Patterns](https://react-form.dev/recipes)
+- 📦 [Example Projects](https://github.com/Mehulbirare/react-form/tree/main/examples)
 
 ---
 
@@ -1297,7 +1297,7 @@ NeuraForm doesn't dictate how you handle i18n. Store translations in the `meta` 
 
 ### Reporting Vulnerabilities
 
-If you discover a security vulnerability, please email **security@neuraform.dev** directly. Do not open a public issue.
+If you discover a security vulnerability, please email **security@React Form.dev** directly. Do not open a public issue.
 
 We take security seriously and will respond within 48 hours.
 
@@ -1362,11 +1362,11 @@ SOFTWARE.
 
 Having trouble? We're here to help!
 
-- 📖 **[Documentation](https://neuraform.dev/docs)** — Comprehensive guides and API reference
-- 💬 **[Discord Community](https://discord.gg/neuraform)** — Chat with the community
-- 🐛 **[Issue Tracker](https://github.com/Mehulbirare/neura-form/issues)** — Report bugs or request features
-- 📧 **[Email Support](mailto:support@neuraform.dev)** — Direct support for sponsors
-- 💼 **[Enterprise](https://neuraform.dev/enterprise)** — Custom solutions and training
+- 📖 **[Documentation](https://react-form.dev/docs)** — Comprehensive guides and API reference
+- 💬 **[Discord Community](https://discord.gg/react-form)** — Chat with the community
+- 🐛 **[Issue Tracker](https://github.com/Mehulbirare/react-form/issues)** — Report bugs or request features
+- 📧 **[Email Support](mailto:support@React Form.dev)** — Direct support for sponsors
+- 💼 **[Enterprise](https://react-form.dev/enterprise)** — Custom solutions and training
 
 ---
 
@@ -1393,8 +1393,10 @@ Having trouble? We're here to help!
 
 ### Built with ❤️ by [Mehul Birare](https://github.com/Mehulbirare)
 
-**If NeuraForm helps you build better forms, consider giving it a ⭐️!**
+**If React Form helps you build better forms, consider giving it a ⭐️!**
 
-[⬆ Back to Top](#-neuraform)
+[⬆ Back to Top](#-React Form)
 
 </div>
+
+

@@ -8,7 +8,7 @@ export class StorageAdapter {
     private storageKey: string;
     private useIndexedDB: boolean;
 
-    constructor(storageKey: string = 'neuraform-state') {
+    constructor(storageKey: string = 'React Form-state') {
         this.storageKey = storageKey;
         this.useIndexedDB = typeof indexedDB !== 'undefined';
     }
@@ -68,3 +68,7 @@ export class StorageAdapter {
         }
     }
 }
+
+
+
+

@@ -1,10 +1,10 @@
 /**
- * @neuraform/core - Framework-agnostic graph-based form engine
+ * react-form-engine - Framework-agnostic graph-based form engine
  * 
  * Eliminate "condition hell" in complex multi-step forms
  */
 
-export { NeuraFormEngine } from './engine';
+export { FormEngine } from './engine';
 export { StorageAdapter } from './storage';
 export { Validator } from './validator';
 export { PathCalculator } from './path-calculator';
@@ -21,3 +21,7 @@ export type {
     ValidationResult,
     StepChangeEvent
 } from './types';
+
+
+
+

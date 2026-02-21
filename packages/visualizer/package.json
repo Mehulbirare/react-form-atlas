@@ -1,12 +1,12 @@
 {
-    "name": "@neuraform/visualizer",
+    "name": "react-form-visualizer",
     "version": "1.0.1",
-    "description": "Visual form flow designer for NeuraForm schemas",
+    "description": "Visual form flow designer for React Form schemas",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
     "bin": {
-        "neuraform-visualizer": "./dist/cli.js"
+        "react-form-visualizer": "./dist/cli.js"
     },
     "exports": {
         ".": {
@@ -27,7 +27,7 @@
         "dev": "tsup src/index.ts src/cli.ts --format cjs,esm --dts --watch"
     },
     "keywords": [
-        "neuraform",
+        "React Form",
         "visualizer",
         "flowchart",
         "graph"
@@ -35,12 +35,12 @@
     "author": "Mehul Birare",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Mehulbirare/neura-form.git",
+        "url": "https://github.com/Mehulbirare/react-form.git",
         "directory": "packages/visualizer"
     },
     "license": "MIT",
     "dependencies": {
-        "@neuraform/core": "^1.0.0"
+        "react-form-engine": "^1.0.0"
     },
     "devDependencies": {
         "tsup": "^8.0.1",

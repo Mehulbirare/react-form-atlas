@@ -1,30 +1,30 @@
 #!/usr/bin/env node
 
 /**
- * CLI tool for visualizing NeuraForm schemas
+ * CLI tool for visualizing React Form schemas
  */
 
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 import { SchemaVisualizer } from './visualizer';
-import type { FormSchema } from '@neuraform/core';
+import type { FormSchema } from 'react-form-engine';
 
 const args = process.argv.slice(2);
 
 function printHelp() {
   console.log(`
-🧠 NeuraForm Visualizer
+🧠 React Form Visualizer
 
 Usage:
-  neuraform-visualizer <schema-file> [options]
+  react-form-visualizer <schema-file> [options]
 
 Options:
   -o, --output <file>    Output HTML file (default: schema-visualization.html)
   -h, --help            Show this help message
 
 Examples:
-  neuraform-visualizer schema.json
-  neuraform-visualizer schema.json -o my-form.html
+  react-form-visualizer schema.json
+  react-form-visualizer schema.json -o my-form.html
   `);
 }
 
@@ -74,3 +74,7 @@ function main() {
 }
 
 main();
+
+
+
+

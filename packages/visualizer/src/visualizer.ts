@@ -1,7 +1,7 @@
-import type { FormSchema } from '@neuraform/core';
+import type { FormSchema } from 'react-form-engine';
 
 /**
- * Generate a Mermaid flowchart from a NeuraForm schema
+ * Generate a Mermaid flowchart from a React Form schema
  */
 export class SchemaVisualizer {
   /**
@@ -47,7 +47,7 @@ export class SchemaVisualizer {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeuraForm Schema Visualizer</title>
+  <title>React Form Schema Visualizer</title>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <style>
     * {
@@ -146,7 +146,7 @@ export class SchemaVisualizer {
 </head>
 <body>
   <div class="container">
-    <h1>🧠 NeuraForm Schema Visualizer</h1>
+    <h1>🧠 React Form Schema Visualizer</h1>
     
     <div class="schema-info">
       <h2>Schema: ${schema.id}</h2>
@@ -223,3 +223,7 @@ ${mermaid}
     };
   }
 }
+
+
+
+
