@@ -1,6 +1,6 @@
 {
     "name": "react-form-atlas-workspace",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Graph-based form engine that eliminates condition hell in complex multi-step forms",
     "private": true,
     "workspaces": [
@@ -44,5 +44,5 @@
     "bugs": {
         "url": "https://github.com/Mehulbirare/react-form-atlas/issues"
     },
-    "homepage": "  https://mehulbirare.github.io/react-form-atlas/"
+    "homepage": "https://mehulbirare.github.io/react-form-atlas/"
 }

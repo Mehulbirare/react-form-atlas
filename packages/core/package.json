@@ -1,6 +1,6 @@
 {
     "name": "react-form-atlas-engine",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Framework-agnostic graph-based form engine",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -38,6 +38,7 @@
         "url": "https://github.com/Mehulbirare/react-form-atlas.git",
         "directory": "packages/core"
     },
+    "homepage": "https://mehulbirare.github.io/react-form-atlas/",
     "license": "MIT",
     "devDependencies": {
         "tsup": "^8.0.1",

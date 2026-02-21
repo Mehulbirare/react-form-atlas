@@ -42,78 +42,9 @@
             color: var(--text);
             font-family: var(--mono);
             overflow-x: hidden;
-            cursor: none;
         }
 
-        /* ─── CUSTOM CURSOR ──────────────────────────────────────────────── */
-        #cursor-dot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s, background 0.3s;
-        }
 
-        #cursor-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 36px;
-            height: 36px;
-            border: 1.5px solid rgba(200, 255, 0, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99998;
-            transform: translate(-50%, -50%);
-            transition: transform 0.18s var(--ease), width 0.3s var(--ease),
-                height 0.3s var(--ease), border-color 0.3s;
-        }
-
-        body:has(a:hover) #cursor-ring,
-        body:has(button:hover) #cursor-ring {
-            width: 60px;
-            height: 60px;
-            border-color: var(--accent);
-        }
-
-        /* ─── GRAIN OVERLAY ─────────────────────────────────────────────── */
-        #grain {
-            position: fixed;
-            inset: 0;
-            z-index: 9000;
-            pointer-events: none;
-            opacity: 0.035;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            animation: grainShift 0.4s steps(1) infinite;
-        }
-
-        @keyframes grainShift {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            25% {
-                transform: translate(-2%, -3%);
-            }
-
-            50% {
-                transform: translate(3%, 1%);
-            }
-
-            75% {
-                transform: translate(-1%, 3%);
-            }
-
-            100% {
-                transform: translate(2%, -1%);
-            }
-        }
 
         /* ─── NAVBAR ─────────────────────────────────────────────────────── */
         nav {
@@ -323,7 +254,7 @@
             background: none;
             border: none;
             color: var(--muted);
-            cursor: none;
+            cursor: pointer;
             transition: color 0.3s;
             padding: 0;
             display: flex;
@@ -504,7 +435,6 @@
             padding: 2.5rem;
             position: relative;
             overflow: hidden;
-            cursor: none;
         }
 
         .bento-card::before {
@@ -627,7 +557,7 @@
         .step-tab {
             padding: 1.5rem 2rem;
             border-left: 2px solid var(--border);
-            cursor: none;
+            cursor: pointer;
             transition: border-color 0.3s, background 0.3s;
         }
 
@@ -756,7 +686,7 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             padding: 0.4rem 0.8rem;
-            cursor: none;
+            cursor: pointer;
             transition: background 0.3s, color 0.3s;
         }
 
@@ -1127,12 +1057,7 @@
 
 <body>
 
-    <!-- Cursor -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-ring"></div>
 
-    <!-- Grain -->
-    <div id="grain"></div>
 
     <!-- ─── NAV ──────────────────────────────────────────────────────────── -->
     <nav id="navbar">
@@ -1150,7 +1075,7 @@
     <section id="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
-            <div class="hero-badge"><span class="badge-dot"></span> v1.1.0 — Now Available</div>
+            <div class="hero-badge"><span class="badge-dot"></span> v1.3.0 — Now Available</div>
 
             <h1 id="hero-title">
                 React<br>
@@ -1603,7 +1528,7 @@
     <footer>
         <div>
             <div class="footer-brand" style="color: var(--accent);">React Form Atlas</div>
-            <div style="color: var(--muted); font-size: 0.75rem; margin-top: 0.3rem;">v1.2.0 · MIT License</div>
+            <div style="color: var(--muted); font-size: 0.75rem; margin-top: 0.3rem;">v1.3.0 · MIT License</div>
         </div>
         <div class="footer-links">
             <a href="https://github.com/Mehulbirare/react-form-atlas" target="_blank">GitHub</a>
@@ -1617,18 +1542,7 @@
 
     <!-- ─── SCRIPTS ───────────────────────────────────────────────────────── -->
     <script>
-        /* ── Cursor ── */
-        const dot = document.getElementById('cursor-dot');
-        const ring = document.getElementById('cursor-ring');
-        let mx = 0, my = 0, rx = 0, ry = 0;
-        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-        (function animateCursor() {
-            rx += (mx - rx) * 0.18;
-            ry += (my - ry) * 0.18;
-            dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-            ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-            requestAnimationFrame(animateCursor);
-        })();
+
 
         /* ── Navbar ── */
         const nav = document.getElementById('navbar');
@@ -1733,27 +1647,7 @@
         }
         drawCanvas();
 
-        /* ── Text Scramble for hero title ── */
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%';
-        function scramble(el, finalText, duration = 1000) {
-            let frame = 0;
-            const totalFrames = Math.ceil(duration / 16);
-            const orig = finalText;
-            const interval = setInterval(() => {
-                const progress = frame / totalFrames;
-                el.textContent = orig.split('').map((ch, i) => {
-                    if (ch === '\n' || ch === ' ') return ch;
-                    if (i / orig.length < progress) return ch;
-                    return chars[Math.floor(Math.random() * chars.length)];
-                }).join('');
-                if (frame >= totalFrames) { el.textContent = orig; clearInterval(interval); }
-                frame++;
-            }, 16);
-        }
-        setTimeout(() => {
-            const title = document.getElementById('hero-title');
-            scramble(title, 'React\nForm\nAtlas', 1200);
-        }, 300);
+
 
         /* ── Copy hero install ── */
         document.getElementById('hero-copy').addEventListener('click', function () {

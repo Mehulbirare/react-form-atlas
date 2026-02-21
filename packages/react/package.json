@@ -1,6 +1,6 @@
 {
     "name": "react-form-atlas",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "React hooks and components for React Form Atlas",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -36,12 +36,13 @@
         "url": "https://github.com/Mehulbirare/react-form-atlas.git",
         "directory": "packages/react"
     },
+    "homepage": "https://mehulbirare.github.io/react-form-atlas/",
     "license": "MIT",
     "peerDependencies": {
         "react": "^18.0.0"
     },
     "dependencies": {
-        "react-form-atlas-engine": "^1.2.0"
+        "react-form-atlas-engine": "^1.3.0"
     },
     "devDependencies": {
         "@types/react": "^18.2.48",
