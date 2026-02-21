@@ -107,7 +107,7 @@ React Form Atlas/
 
 1. **Install Dependencies**
    ```bash
-   cd c:\Users\mehul\Projects\React Form Atlas
+   cd c:\Users\mehul\Projects\neuraform
    npm install
    ```
 

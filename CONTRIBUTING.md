@@ -6,8 +6,8 @@ Thank you for your interest in contributing to React Form Atlas! 🎉
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/React Form Atlas.git
-   cd React Form Atlas
+   git clone https://github.com/Mehulbirare/react-form-atlas.git
+   cd react-form-atlas
    ```
 
 2. **Install dependencies**

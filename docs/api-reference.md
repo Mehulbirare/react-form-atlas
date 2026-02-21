@@ -268,7 +268,7 @@ const stats = SchemaVisualizer.getStats(schema);
 ### CLI
 
 ```bash
-React Form Atlas-visualizer <schema-file> [options]
+react-form-atlas-visualizer <schema-file> [options]
 
 Options:
   -o, --output <file>    Output HTML file
@@ -277,7 +277,7 @@ Options:
 
 **Example:**
 ```bash
-React Form Atlas-visualizer schema.json -o visualization.html
+react-form-atlas-visualizer schema.json -o visualization.html
 ```
 
 

@@ -104,12 +104,12 @@ Add these to your root `package.json`:
 
 ## Scoped Packages
 
-If you want to use scoped packages (e.g., `@yourname/React Form Atlas-core`):
+If you want to use scoped packages (e.g., `@yourname/react-form-atlas-core`):
 
 1. Update package names in all `package.json` files:
    ```json
    {
-     "name": "@yourname/React Form Atlas-core"
+     "name": "@yourname/react-form-atlas-core"
    }
    ```
 

@@ -79,9 +79,9 @@ console.log(engine.getCurrentState()); // 'userType'
 
 ## 📚 Documentation
 
-- [**Core Concepts**](https://github.com/Mehulbirare/react-form/blob/main/docs/core-concepts.md) - Learn about Nodes, Edges, and Travelers.
-- [**API Reference**](https://github.com/Mehulbirare/react-form/blob/main/docs/api-reference.md) - Full method documentation.
-- [**Examples**](https://github.com/Mehulbirare/react-form/tree/main/examples) - Real-world usage.
+- [**Core Concepts**](https://github.com/Mehulbirare/react-form-atlas/blob/main/docs/core-concepts.md) - Learn about Nodes, Edges, and Travelers.
+- [**API Reference**](https://github.com/Mehulbirare/react-form-atlas/blob/main/docs/api-reference.md) - Full method documentation.
+- [**Examples**](https://github.com/Mehulbirare/react-form-atlas/tree/main/examples) - Real-world usage.
 
 ## 📄 License
 

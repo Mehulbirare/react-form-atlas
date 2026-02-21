@@ -17,7 +17,7 @@ Your publish-ready NPM package is now complete and built! Here's what you have:
 Try out the visualizer with the example schema:
 
 ```bash
-cd c:\Users\mehul\Projects\React Form Atlas
+cd c:\Users\mehul\Projects\neuraform
 node packages\visualizer\dist\cli.js examples\onboarding-schema.json -o test-visualization.html
 ```
 
@@ -33,7 +33,7 @@ Update the following in all `package.json` files:
 ### 3. Initialize Git Repository
 
 ```bash
-cd c:\Users\mehul\Projects\React Form Atlas
+cd c:\Users\mehul\Projects\neuraform
 git add .
 git commit -m "Initial commit: React Form Atlas v1.0.0"
 ```
@@ -45,7 +45,7 @@ git commit -m "Initial commit: React Form Atlas v1.0.0"
 3. Follow GitHub's instructions to push your code:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/React Form Atlas.git
+git remote add origin https://github.com/Mehulbirare/react-form-atlas.git
 git branch -M main
 git push -u origin main
 ```

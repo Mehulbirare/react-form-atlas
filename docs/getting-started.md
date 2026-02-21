@@ -299,8 +299,8 @@ npx react-form-atlas-visualizer schema.json -o visualization.html
 ## Need Help?
 
 - 📖 [Documentation](../README.md)
-- 💬 [GitHub Issues](https://github.com/yourusername/React Form Atlas/issues)
-- 🐦 [Twitter](https://twitter.com/yourusername)
+- 💬 [GitHub Issues](https://github.com/Mehulbirare/react-form-atlas/issues)
+- 🐦 [Twitter](https://twitter.com/react-form-atlas)
 
 ---
 

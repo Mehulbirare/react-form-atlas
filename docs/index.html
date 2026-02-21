@@ -1006,6 +1006,122 @@
         ::-webkit-scrollbar-thumb {
             background: var(--accent);
         }
+
+        /* ─── DOCUMENTATION STYLES ───────────────────────────────────────── */
+        .prose h3 {
+            font-family: var(--heading);
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .prose h4 {
+            font-family: var(--heading);
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .prose p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .prose ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--muted);
+        }
+
+        .prose ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .prose code {
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .prose blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 2rem;
+            background: var(--surface);
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comp-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem;
+        }
+
+        .comp-card h5 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+        }
+
+        .comp-card.highlight {
+            border-color: var(--accent);
+        }
+
+        .comp-card.highlight h5 {
+            color: var(--accent);
+        }
+
+        .api-detailed-item {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0;
+        }
+
+        .api-detailed-item:first-child {
+            border-top: none;
+        }
+
+        .api-signature {
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .api-signature span {
+            color: var(--accent);
+        }
+
+        .api-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
     </style>
 </head>
 
@@ -1023,10 +1139,10 @@
         <a href="#" class="logo">Form Atlas</a>
         <div class="nav-links">
             <a href="#features">Features</a>
+            <a href="#concepts">Concepts</a>
             <a href="#quickstart">Quick Start</a>
             <a href="#api">API</a>
-            <a href="https://github.com/Mehulbirare/react-form" target="_blank">GitHub ↗</a>
-            <a href="https://www.npmjs.com/package/react-form-atlas" target="_blank">NPM ↗</a>
+            <a href="https://github.com/Mehulbirare/react-form-atlas" target="_blank">GitHub ↗</a>
         </div>
     </nav>
 
@@ -1058,7 +1174,7 @@
                         </svg>
                     </button>
                 </div>
-                <a href="https://github.com/Mehulbirare/react-form" class="btn-primary" target="_blank">
+                <a href="https://github.com/Mehulbirare/react-form-atlas" class="btn-primary" target="_blank">
                     View on GitHub
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
@@ -1164,6 +1280,66 @@
         </div>
     </section>
 
+    <!-- ─── CORE CONCEPTS ────────────────────────────────────────────────── -->
+    <section id="concepts" class="section" style="background: rgba(255,255,255,0.01);">
+        <p class="section-label reveal">Architecture</p>
+        <h2 class="reveal">The Mental Model.<br>Graph vs Linear.</h2>
+        <div class="prose reveal">
+            <p>React Form Atlas is a <strong>graph-based form engine</strong> that treats your form as a Directed
+                Acyclic Graph (DAG) instead of a linear array of steps. This fundamental shift eliminates "condition
+                hell" and makes complex branching logic declarative and maintainable.</p>
+
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <h5>Traditional Approach</h5>
+                    <p>Linear arrays (<code>[Step1, Step2, Step3]</code>) require complex imperative logic to handle
+                        branching. Resulting in brittle <code>if/else</code> soup.</p>
+                </div>
+                <div class="comp-card highlight">
+                    <h5>React Form Atlas</h5>
+                    <p>Declarative graph schemas define nodes and edges. The engine handles navigation, history, and
+                        progress calculation automatically.</p>
+                </div>
+            </div>
+
+            <blockquote>
+                "Eliminate 'Condition Hell' — Build forms that scale from 5 to 500 steps without breaking a sweat."
+            </blockquote>
+
+            <h3>Key Differentiators</h3>
+            <div class="bento" style="margin-top: 2rem;">
+                <div class="bento-card" style="grid-column: span 6;">
+                    <h4>States</h4>
+                    <p>Each step in your form is a <strong>state</strong>. States contain transitions, metadata (weight,
+                        validation), and custom properties like ARIA labels.</p>
+                </div>
+                <div class="bento-card" style="grid-column: span 6;">
+                    <h4>Transitions</h4>
+                    <p>Edges between states. They define the "map" of your form. Can be simple strings or complex
+                        conditional objects that evaluate context.</p>
+                </div>
+                <div class="bento-card" style="grid-column: span 4;">
+                    <h4>Context</h4>
+                    <p>The global state store. Accumulates data as users progress, shared across all form steps.</p>
+                </div>
+                <div class="bento-card" style="grid-column: span 4;">
+                    <h4>Draft-Lock</h4>
+                    <p>Automatic persistence via IndexedDB so users can resume exactly where they left off.</p>
+                </div>
+                <div class="bento-card" style="grid-column: span 4;">
+                    <h4>Path weights</h4>
+                    <p>Numerical weights assigned to states to make progress bar calculation accurate for every path.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 5rem;">Predictive Validation</h3>
+            <p>Instead of validating only the current step, React Form Atlas validates the <strong>entire future
+                    path</strong>. If a user enters data that makes a future required step impossible to complete (e.g.,
+                age restriction), they are alerted immediately—preventing wasted time on intermediate steps.</p>
+        </div>
+    </section>
+
     <!-- ─── QUICK START ───────────────────────────────────────────────────── -->
     <div
         style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
@@ -1210,6 +1386,74 @@
                             <button class="copy-code-btn" id="code-copy">Copy</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="prose reveal" style="margin-top: 8rem;">
+                <h2 style="font-size: 3rem;">In-Depth Tutorial</h2>
+                <p>Let's build a complete onboarding flow with conditional branching using the React bridge.</p>
+
+                <h3>Step 1: Your Schema Map</h3>
+                <p>Create a <code>schema.ts</code> file to define your form's topology. Notice the <code>weight</code>
+                    field—this is used for accurate progress calculation.</p>
+
+                <div class="code-window" style="margin: 2rem 0;">
+                    <div class="window-bar"><span class="window-title">schema.ts</span></div>
+                    <div class="code-body">
+                        <pre><span class="c-keyword">export const</span> onboardingSchema = {
+  <span class="c-attr">id</span>: <span class="c-string">'onboarding'</span>,
+  <span class="c-attr">initial</span>: <span class="c-string">'welcome'</span>,
+  <span class="c-attr">states</span>: {
+    <span class="c-attr">welcome</span>: { <span class="c-attr">on</span>: { NEXT: <span class="c-string">'userType'</span> } },
+    <span class="c-attr">userType</span>: {
+      <span class="c-attr">on</span>: {
+        BUSINESS: <span class="c-string">'bizDetails'</span>,
+        INDIVIDUAL: <span class="c-string">'personalDetails'</span>
+      }
+    },
+    <span class="c-attr">bizDetails</span>: { <span class="c-attr">on</span>: { NEXT: <span class="c-string">'complete'</span> }, <span class="c-attr">meta</span>: { weight: <span class="c-num">3</span> } },
+    <span class="c-attr">personalDetails</span>: { <span class="c-attr">on</span>: { NEXT: <span class="c-string">'complete'</span> }, <span class="c-attr">meta</span>: { weight: <span class="c-num">1</span> } },
+    <span class="c-attr">complete</span>: { <span class="c-attr">type</span>: <span class="c-string">'final'</span> }
+  }
+};</pre>
+                    </div>
+                </div>
+
+                <h3>Step 2: The React Component</h3>
+                <p>Apply the <code>useReactForm</code> hook. It returns a stable object containing the current state and
+                    transition functions.</p>
+
+                <div class="code-window" style="margin: 2rem 0;">
+                    <div class="window-bar"><span class="window-title">Form.tsx</span></div>
+                    <div class="code-body">
+                        <pre><span class="c-keyword">import</span> { useReactForm } <span class="c-keyword">from</span> <span class="c-string">'react-form-atlas'</span>;
+
+<span class="c-keyword">function</span> <span class="c-func">MyForm</span>() {
+  <span class="c-keyword">const</span> { currentState, transition, progress, isReady } = 
+    <span class="c-func">useReactForm</span>({ 
+      schema: onboardingSchema, 
+      autoSave: <span class="c-keyword">true</span> 
+    });
+
+  <span class="c-keyword">if</span> (!isReady) <span class="c-keyword">return</span> &lt;<span class="c-func">div</span>&gt;Loading...&lt;/<span class="c-func">div</span>&gt;;
+
+  <span class="c-keyword">return</span> (
+    &lt;<span class="c-func">div</span>&gt;
+      &lt;<span class="c-func">ProgressBar</span> width={progress} /&gt;
+      {currentState === <span class="c-string">'welcome'</span> && (
+        &lt;<span class="c-func">button</span> onClick={() => <span class="c-func">transition</span>(<span class="c-string">'NEXT'</span>)}&gt;Join&lt;/<span class="c-func">button</span>&gt;
+      )}
+    &lt;/<span class="c-func">div</span>&gt;
+  );
+}</pre>
+                    </div>
+                </div>
+
+                <h3>Final Step: Add Visualization</h3>
+                <p>Complex schemas can be hard to track. Use the visualizer CLI to generate an interactive map of your
+                    form.</p>
+                <div class="install-box" style="margin: 2rem 0; background: #000;">
+                    <code>npx react-form-atlas-visualizer schema.json -o map.html</code>
                 </div>
             </div>
         </section>
@@ -1283,6 +1527,75 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="prose reveal" style="margin-top: 8rem;">
+            <h2 style="font-size: 3rem;">Detailed Reference</h2>
+            <p>Every function in the engine is built for reliability. All state changes are <strong>atomic</strong> and
+                <strong>irreversible</strong> (unless you move back).</p>
+
+            <div class="api-detailed-item">
+                <div class="api-signature"><span>transition</span>(event: string, data?: object)</div>
+                <div class="api-meta"><span>Returns:</span> Promise&lt;void&gt; &bull; <span>Async:</span> Yes</div>
+                <p>Evaluates guards for the given event, merges <code>data</code> into the global context, and updates
+                    the state. If no valid transition is found, it throws a <code>TransitionError</code>.</p>
+            </div>
+
+            <div class="api-detailed-item">
+                <div class="api-signature"><span>back</span>()</div>
+                <div class="api-meta"><span>Returns:</span> Promise&lt;void&gt; &bull; <span>History-aware:</span> Yes
+                </div>
+                <p>Navigates to the previous state in the history stack. Respects the <code>allowBack</code> flag in
+                    your schema. Automatically syncs with storage.</p>
+            </div>
+
+            <div class="api-detailed-item">
+                <div class="api-signature"><span>updateContext</span>(data: Partial&lt;T&gt;)</div>
+                <div class="api-meta"><span>Returns:</span> void &bull; <span>Performance:</span> Targeted Update</div>
+                <p>Deep-merges new data into the form context without triggering state transitions. Useful for per-field
+                    validation or temporary UI state.</p>
+            </div>
+
+            <div class="api-detailed-item">
+                <div class="api-signature"><span>reset</span>()</div>
+                <div class="api-meta"><span>Returns:</span> void &bull; <span>Destructive:</span> Yes</div>
+                <p>Wipes all context, history, and storage snapshots. Returns the engine to its initial state—clean
+                    slate.</p>
+            </div>
+
+            <h3 style="margin-top: 6rem;">TypeScript Interfaces</h3>
+            <p>React Form Atlas is built with 100% type safety. All schemas and hooks are strictly typed for a superior
+                developer experience.</p>
+
+            <div class="code-window" style="margin: 3rem 0;">
+                <div class="window-bar"><span class="window-title">types.ts</span></div>
+                <div class="code-body">
+                    <pre><span class="c-keyword">interface</span> <span class="c-func">FormSchema</span> {
+  <span class="c-attr">id</span>: string;
+  <span class="c-attr">initial</span>: string;
+  <span class="c-attr">states</span>: Record&lt;string, <span class="c-func">FormState</span>&gt;;
+}
+
+<span class="c-keyword">interface</span> <span class="c-func">FormState</span> {
+  <span class="c-attr">id</span>: string;
+  <span class="c-attr">on</span>?: Record&lt;string, string | <span class="c-func">ConditionalTransition</span>&gt;;
+  <span class="c-attr">meta</span>?: {
+    <span class="c-attr">weight</span>?: number;
+    <span class="c-attr">validation</span>?: <span class="c-func">ValidationRule</span>[];
+  };
+}</pre>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 5rem;">The Visualizer CLI</h3>
+            <p>Generate documentation automatically from your code. Use the CLI tool to generate Mermaid diagrams or
+                interactive HTML reports.</p>
+            <div class="window-bar" style="background: var(--surface); margin-top: 2rem;">
+                <span class="window-title">cli usage</span>
+            </div>
+            <div class="code-body" style="background: #000; border: 1px solid var(--border); border-top: none;">
+                <pre>react-form-atlas-visualizer &lt;schema.json&gt; --output report.html</pre>
+            </div>
+        </div>
     </section>
 
     <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
@@ -1292,7 +1605,7 @@
             <div style="color: var(--muted); font-size: 0.75rem; margin-top: 0.3rem;">v1.1.0 · MIT License</div>
         </div>
         <div class="footer-links">
-            <a href="https://github.com/Mehulbirare/react-form" target="_blank">GitHub</a>
+            <a href="https://github.com/Mehulbirare/react-form-atlas" target="_blank">GitHub</a>
             <a href="https://www.npmjs.com/package/react-form-atlas" target="_blank">NPM</a>
             <a href="#features">Features</a>
             <a href="#api">API</a>

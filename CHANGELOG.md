@@ -46,6 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Accessibility**: Built-in ARIA labels and keyboard navigation
 - **Analytics Ready**: Hooks for tracking user behavior
 
-[1.0.0]: https://github.com/yourusername/React Form Atlas/releases/tag/v1.0.0
+[1.0.0]: https://github.com/Mehulbirare/react-form-atlas/releases/tag/v1.0.0
 
 
