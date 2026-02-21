@@ -2,7 +2,7 @@
  * react-form-visualizer - Visual form flow designer
  */
 
-export * from '../../core/src/index';
+export * from 'react-form-engine';
 
 export { SchemaVisualizer } from './visualizer';
 

@@ -1,6 +1,6 @@
 {
     "name": "react-form",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Graph-based form engine that eliminates condition hell in complex multi-step forms",
     "private": true,
     "workspaces": [
