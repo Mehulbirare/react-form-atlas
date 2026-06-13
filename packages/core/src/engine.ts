@@ -147,7 +147,10 @@ export class FormEngine {
         }
 
         const previousState = this.state.history.pop()!;
-        this.state.completedSteps.delete(this.state.currentState);
+        // The state we are returning to is no longer "completed".
+        // (Deleting currentState here would be a no-op, since the state we are
+        //  leaving was never added to completedSteps.)
+        this.state.completedSteps.delete(previousState);
 
         const currentState = this.state.currentState;
         this.state.currentState = previousState;

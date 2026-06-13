@@ -43,9 +43,22 @@ export function useReactForm(options: UseReactFormOptions): UseReactFormReturn {
     // Extract schema ID for dependency tracking
     const schemaId = options.schema.id;
 
+    // Keep the latest options (callbacks, etc.) in a ref so the engine created
+    // below always invokes the current callbacks instead of the ones captured
+    // on the first render.
+    const optionsRef = useRef(options);
+    optionsRef.current = options;
+
     // Initialize engine
     useEffect(() => {
-        const engine = new FormEngine(options);
+        setIsReady(false);
+
+        const engine = new FormEngine({
+            ...options,
+            onStepChange: event => optionsRef.current.onStepChange?.(event),
+            onComplete: context => optionsRef.current.onComplete?.(context),
+            onError: error => optionsRef.current.onError?.(error)
+        });
         engineRef.current = engine;
 
         // Set up event listeners

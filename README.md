@@ -23,6 +23,15 @@
 
 ---
 
+> ### 🆕 What's New in v1.3.2
+> - 🔒 **Security fix (visualizer):** the schema visualizer now HTML-escapes all schema-derived values, closing an XSS/HTML-injection hole when rendering untrusted schemas. **Upgrade recommended** if you generate visualizations from external input.
+> - 🐛 **Fixed:** `back()` now correctly un-completes the step you return to, so weighted progress updates properly when navigating backwards.
+> - 🐛 **Fixed:** `useReactForm` no longer holds stale `onStepChange` / `onComplete` / `onError` callbacks.
+>
+> See the full [CHANGELOG](./CHANGELOG.md) for details.
+
+---
+
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
@@ -107,6 +116,7 @@ cd my-form-app && npm start
 - 💾 **Auto-Save** — Never lose user data
 - 🔄 **Offline First** — Works without internet
 - 🐛 **Error Boundaries** — Graceful failure handling
+- 🔒 **Safe Visualization** — Schema output is HTML-escaped against injection
 
 </td>
 </tr>

@@ -1,6 +1,6 @@
 {
     "name": "react-form-atlas-visualizer",
-    "version": "1.3.1",
+    "version": "1.3.2",
     "description": "Visual form flow designer for React Form Atlas schemas",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
@@ -10,9 +10,9 @@
     },
     "exports": {
         ".": {
-            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
-            "types": "./dist/index.d.ts"
+            "require": "./dist/index.js"
         }
     },
     "publishConfig": {
@@ -24,7 +24,8 @@
     ],
     "scripts": {
         "build": "tsup src/index.ts src/cli.ts --format cjs,esm --dts",
-        "dev": "tsup src/index.ts src/cli.ts --format cjs,esm --dts --watch"
+        "dev": "tsup src/index.ts src/cli.ts --format cjs,esm --dts --watch",
+        "test": "vitest"
     },
     "keywords": [
         "React Form Atlas",
@@ -41,10 +42,11 @@
     "homepage": "https://mehulbirare.github.io/react-form-atlas/",
     "license": "MIT",
     "dependencies": {
-        "react-form-atlas-engine": "^1.3.0"
+        "react-form-atlas-engine": "^1.3.2"
     },
     "devDependencies": {
         "tsup": "^8.0.1",
-        "typescript": "^5.3.3"
+        "typescript": "^5.3.3",
+        "vitest": "^1.2.0"
     }
 }

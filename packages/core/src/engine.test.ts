@@ -90,6 +90,18 @@ describe('FormEngine', () => {
             await engine.transition('NEXT');
             expect(engine.canGoBack()).toBe(true);
         });
+
+        it('should un-complete the returned-to step when going back', async () => {
+            await engine.start();
+            await engine.transition('NEXT');
+            const progressAfterNext = engine.getProgress();
+
+            await engine.back();
+            // After returning to step1, progress should drop back to 0 because
+            // step1 is no longer a completed step.
+            expect(engine.getProgress()).toBe(0);
+            expect(engine.getProgress()).toBeLessThan(progressAfterNext);
+        });
     });
 
     describe('progress calculation', () => {

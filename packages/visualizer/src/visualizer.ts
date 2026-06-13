@@ -5,6 +5,19 @@ import type { FormSchema } from 'react-form-atlas-engine';
  */
 export class SchemaVisualizer {
   /**
+   * Escape a value for safe interpolation into HTML, preventing
+   * HTML/script injection from untrusted schema content.
+   */
+  private static escapeHtml(value: unknown): string {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /**
    * Convert schema to Mermaid diagram syntax
    */
   static toMermaid(schema: FormSchema): string {
@@ -40,7 +53,14 @@ export class SchemaVisualizer {
    * Generate an HTML page with the visualized schema
    */
   static toHTML(schema: FormSchema): string {
-    const mermaid = this.toMermaid(schema);
+    // Escape the diagram source before embedding it in HTML. The browser
+    // decodes the entities back to text content, so Mermaid still renders the
+    // intended labels while the HTML parser cannot be tricked into breaking
+    // out of the <pre> block via crafted schema values.
+    const mermaid = this.escapeHtml(this.toMermaid(schema));
+    const schemaId = this.escapeHtml(schema.id);
+    const initial = this.escapeHtml(schema.initial);
+    const totalStates = Object.keys(schema.states).length;
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -149,9 +169,9 @@ export class SchemaVisualizer {
     <h1>🧠 React Form Atlas Schema Visualizer</h1>
     
     <div class="schema-info">
-      <h2>Schema: ${schema.id}</h2>
-      <p>Initial State: <strong>${schema.initial}</strong></p>
-      <p>Total States: <strong>${Object.keys(schema.states).length}</strong></p>
+      <h2>Schema: ${schemaId}</h2>
+      <p>Initial State: <strong>${initial}</strong></p>
+      <p>Total States: <strong>${totalStates}</strong></p>
     </div>
 
     <div id="diagram">
